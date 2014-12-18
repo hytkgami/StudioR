@@ -1,0 +1,64 @@
+<div id="header">
+<ul>
+<% if controller.kind_of?(Admin::Base) %>
+<li class="header-left">
+<%= link_to :root do %>
+<span class="link">TOP</span>
+<% end %>
+</li>
+<li class="header-left">
+<%= link_to :admin_root do %>
+<span class="link">管理TOP</span>
+<% end %>
+</li>
+<li class="header-right">
+<%= link_to :session, method: :delete, confirm: "ログアウトしますか？" do %>
+<span class="link">ログアウト</span>
+<% end %>
+</li>
+<li class="header-right">
+<%= link_to :account do %>
+<span class="link"><%= @current_member.name %>さん</span>
+<% end %>
+</li>
+<% else %>
+<li class="header-left">
+<%= link_to :root do %>
+<span class="link">TOP</span>
+<% end %>
+</li>
+<li class="header-left">
+<%= link_to :new_booking do %> 
+<span class="link">予約</span>
+<% end %>
+</li>
+<% unless @current_member %>
+<li class="header-right">
+<%= link_to :login do%>
+<span class="link">ログイン</span>
+<% end %>
+</li>
+<% else %>
+<p class="member">
+<li class="header-right">
+<%= link_to :session, method: :delete, confirm: "ログアウトしますか？" do %>
+<span class="link">ログアウト</span>
+<% end %>
+</li>
+<li class="header-right">
+<%= link_to :account do %>
+<span><%= @current_member.name %>さん</span>
+<% end %>
+</li>
+<% if @current_member.administrator? %>
+<li class="header-right">
+<%= link_to :admin_root do %>
+<span class="link">管理ページ</span>
+<% end %>
+</li>
+<% end %>
+</p>
+<% end %>
+<% end %>
+</ul>
+</div>

@@ -1,0 +1,24 @@
+<div class="box">
+<table class="list">
+  <tr>
+    <th width="150">ID</th>
+    <td><%= @member.id %></td>
+  </tr>
+  <tr>
+    <th>名前</th>
+    <td><%= @member.name %></td>
+  </tr>
+  <tr>
+    <th>電話番号</th>
+    <td><%= @member.tel %></td>
+  </tr>
+  <tr>
+    <th>メールアドレス</th>
+    <td><%= @member.email %></td>
+  </tr>
+  <tr>
+    <th>管理者</th>
+    <td><%= @member.administrator? ? "○" : "－" %></td>
+  </tr>
+</table>
+</div>

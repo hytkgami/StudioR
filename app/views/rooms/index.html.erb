@@ -1,0 +1,14 @@
+<% if @rooms.present? %>
+<table class="list">
+  <% @rooms.each do |room| %>
+  <tr>
+    <td align="right">
+      <%= form.radio_button :select, room.id %>
+    </td>
+    <td><%= room.name %></td>
+  </tr>
+  <% end %>
+</table>
+<% else %>
+<p>部屋情報がありません。</p>
+<% end %>
