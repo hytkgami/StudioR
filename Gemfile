@@ -38,8 +38,8 @@ gem 'bcrypt-ruby', '~> 3.0.0', require: 'bcrypt'
 # To use debugger
 # gem 'debugger'
 
-gem 'rails3_acts_as_paranoid'
-
 group :test do
   gem 'factory_girl_rails', '~> 1.4.0'
 end
+
+gem 'acts_as_paranoid'

@@ -1,7 +1,7 @@
 class CreateRooms < ActiveRecord::Migration
   def change
     create_table :rooms do |t|
-      t.boolean :deleted, default: false        # 削除フラグ
+      t.boolean :deleted_at        # 削除フラグ
 
       t.timestamps
     end

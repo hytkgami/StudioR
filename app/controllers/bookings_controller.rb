@@ -1,3 +1,5 @@
+# coding: utf-8
+
 class BookingsController < ApplicationController
   # 予約詳細
   def show

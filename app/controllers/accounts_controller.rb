@@ -1,3 +1,5 @@
+# coding: utf-8
+
 class AccountsController < ApplicationController
   # ログインしていないと会員ページから弾かれる
   before_filter :login_required

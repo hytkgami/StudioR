@@ -4,7 +4,7 @@ class Admin::MembersController < Admin::Base
   # 会員一覧
   def index
     # モデルオブジェクトから値をもらう
-    @members = Member.order("id")
+    @members = Member.with_deleted.order("id")
   end
 
   # 詳細
@@ -30,7 +30,7 @@ class Admin::MembersController < Admin::Base
 
   # 会員の削除
   def destroy
-    @member = Member.find(params[:id])
+    @member = Member.with_deleted.find(params[:id])
     @member.destroy
     redirect_to :admin_members, notice: "会員を削除しました。"
   end

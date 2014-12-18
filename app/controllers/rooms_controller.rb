@@ -1,3 +1,5 @@
+# coding: utf-8
+
 class RoomsController < ApplicationController
   # 部屋検索
   def index

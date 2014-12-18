@@ -3,5 +3,5 @@ class Material < ActiveRecord::Base
   has_many :materials, through: :bookedMaterials
   belongs_to :MaterialKind
   
-  attr_accessible :id, :name, :kind_id, :deleted
+  attr_accessible :id, :name, :kind_id, :deleted_at
 end

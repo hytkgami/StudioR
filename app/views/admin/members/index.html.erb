@@ -1,5 +1,8 @@
 <% if @members %>
 <div class="box">
+<% if flash.notice %>
+<p class="alert"><%= flash.notice %></p>
+<% end %>
 <table class="list">
   <tr>
     <th>ID</th>
@@ -20,14 +23,20 @@
     <% else %>
     <td align="center">-</td>
     <% end %>
-    <% if member.deleted %>
+    <% if member.deleted_at != nil %>
     <td align="center">○</td>
     <% else %>
     <td align="center">-</td>
     <% end %>
+    <% unless member.deleted? %>
     <td class="hidden">
-      <%= link_to "削除", [:admin, member], method: :delete,
-            confirm: "本当に削除しますか?" %></td>
+    <%= link_to "削除", [:admin, member], method: :delete, confirm: "本当に削除しますか?" %>
+    </td>
+    <% else %>
+    <td class="hidden">
+    <%= link_to "消去", [:admin, member], method: :delete, confirm: "本当に削除しますか?" %>
+    </td>
+    <% end %>
   </tr>
   <% end %>
 </table>

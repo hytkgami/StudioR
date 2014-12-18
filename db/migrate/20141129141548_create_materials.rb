@@ -3,7 +3,7 @@ class CreateMaterials < ActiveRecord::Migration
     create_table :materials do |t|
       t.string :name              # 機材名
       t.references :kind          # 機材種別
-      t.boolean :deleted, defalut: false          # 削除フラグ
+      t.boolean :deleted_at       # 削除フラグ
 
       t.timestamps
     end

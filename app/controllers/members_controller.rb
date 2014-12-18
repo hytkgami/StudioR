@@ -1,3 +1,5 @@
+# coding: utf-8
+
 class MembersController < ApplicationController
   # 詳細..?
   def show

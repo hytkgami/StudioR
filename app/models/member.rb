@@ -1,5 +1,6 @@
 class Member < ActiveRecord::Base
   has_many :bookings
+  acts_as_paranoid
   
   attr_accessible :user_id, :name, :tel, :email, :administrator, :password, :password_confirmation
   attr_accessor :password, :password_confirmation

@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(:version => 20141213045948) do
   create_table "materials", :force => true do |t|
     t.string   "name"
     t.integer  "kind_id"
-    t.boolean  "deleted"
+    t.boolean  "deleted_at"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(:version => 20141213045948) do
     t.string   "tel"
     t.string   "email"
     t.boolean  "administrator",   :default => false, :null => false
-    t.boolean  "deleted",         :default => false
+    t.boolean  "deleted_at"
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
     t.string   "hashed_password"
@@ -67,9 +67,9 @@ ActiveRecord::Schema.define(:version => 20141213045948) do
   add_index "members", ["id"], :name => "user_id_index"
 
   create_table "rooms", :force => true do |t|
-    t.boolean  "deleted",    :default => false
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.boolean  "deleted_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "rooms", ["id"], :name => "room_id_index"
