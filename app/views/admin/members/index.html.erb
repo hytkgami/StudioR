@@ -34,7 +34,8 @@
     </td>
     <% else %>
     <td class="hidden">
-    <%= link_to "消去", [:admin, member], method: :delete, confirm: "本当に削除しますか?" %>
+      <%= link_to "消去", [:admin, member], method: :delete, confirm: "本当に削除しますか?" %> |
+      <%= link_to "復活", [:recover, :admin, member], method: :put %>
     </td>
     <% end %>
   </tr>
