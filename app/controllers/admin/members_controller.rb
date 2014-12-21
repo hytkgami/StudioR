@@ -34,4 +34,11 @@ class Admin::MembersController < Admin::Base
     @member.destroy
     redirect_to :admin_members, notice: "会員を削除しました。"
   end
+
+  # 会員の復活
+  def recover
+    @member = Member.with_deleted.find(params[:id])
+    @member.recover
+    redirect_to :admin_members, notice: "会員の削除を取り消しました。"
+  end
 end

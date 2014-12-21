@@ -9,12 +9,14 @@ Studio::Application.routes.draw do
   namespace :admin do
     root to: "top#index"
     # 会員を閲覧,作成,削除できる
-    resources :members, only: [:index, :show, :new, :create, :destroy]
-    # 予約を削除できる
+    resources :members, only: [:index, :show, :new, :create, :destroy] do
+      member { put "recover" } # メンバーの再開
+    end
+    # 予約を閲覧,詳細確認,作成,削除できる
     resources :bookings, only: [:index, :show, :new, :create, :destroy]
-    # 部屋を削除できる
+    # 部屋を閲覧,削除できる
     resources :rooms, only: [:index, :destroy]
-    # 機材を編集, 削除できる
+    # 機材を閲覧,編集,登録,削除できる
     resources :materials
   end
 

@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import "bootstrap-datetimepicker";
 /* CSS Document */
 
 html{
@@ -138,7 +139,7 @@ span.link:hover{
 }
 
 
-#contener{
+#container{
 	margin:0px 18%;
 	padding :0 0;
 	height:100%;
@@ -170,7 +171,7 @@ span.link:hover{
 .box{
 	border:#DDD solid 1px;
 	padding: 20px;
-	background-color:#FCFCFC;
+	background-color: rgba(252,252,252,0.7);
 	width: 80%;
 	margin: auto;
 }
@@ -231,8 +232,15 @@ table.list td, th{
 
 table.list th{
 	font-weight: normal;
-	color:#AAA;
-	background:#FCFCFC;
+	color:#000;
+	background:#64C99B;
+	margin: 0;
+}
+
+table.list td{
+	font-weight: normal;
+	color:#000;
+	background:#C6EDDB;
 	margin: 0;
 }
 
@@ -251,7 +259,6 @@ table.list tr td.hidden{
 table.list tr:hover td.hidden{
 	display: inline;
 	color: #F22;
-	
 }
 
 table.list tr:hover td.hidden a{
@@ -260,7 +267,7 @@ table.list tr:hover td.hidden a{
 }
 
 table.list tr:hover td.hidden a:hover{
-	color: #FFF;
+  color: blue;
 }
 
 #fotter{

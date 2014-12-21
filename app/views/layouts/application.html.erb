@@ -20,9 +20,12 @@
   <% line = "" %> 
 <% end %> 
 <%= content_tag(:div, class:"line#{line}") do %><% end %>
-<div id="contener">
+<div id="container">
   <div id="logo-mini"><%= image_tag("logo.jpg", size: "40%", alt: "Logo") %></div>
 <%= render "shared/header" %>
+<% if @title %>
+<h2><%= @title %></h2>
+<% end %>
 <% if flash.notice %>
 <p class="notice"><%= flash.notice %></p>
 <% end %>

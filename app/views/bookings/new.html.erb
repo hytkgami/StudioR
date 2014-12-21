@@ -1,8 +1,7 @@
-<% @page_title = "予約" %>
-
-<h2><%= @page_title %></h2>
-
+<% @title = "予約" %>
+<div class="box">
 <%= form_for @booking do |form| %>
-<%= render "form", form: form %>
+<%= render "form_for_rooms_and_date", form: form %>
 <p><%= form.submit %></p>
 <% end %>
+</div>

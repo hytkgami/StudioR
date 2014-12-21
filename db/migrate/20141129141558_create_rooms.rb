@@ -6,6 +6,6 @@ class CreateRooms < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :rooms, :id, name: 'room_id_index'
+    add_index :rooms, :id
   end
 end

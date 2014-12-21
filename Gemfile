@@ -43,3 +43,5 @@ group :test do
 end
 
 gem 'acts_as_paranoid'
+
+gem 'bootstrap-datetimepicker-rails'

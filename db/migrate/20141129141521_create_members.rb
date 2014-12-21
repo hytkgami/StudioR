@@ -10,6 +10,6 @@ class CreateMembers < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :members, :id,  name: 'user_id_index'
+    add_index :members, :id
   end
 end

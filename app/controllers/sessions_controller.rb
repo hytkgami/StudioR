@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if member
       session[:user_id] = member.id
     else
-      flash.alert = "メールアドレスとパスワードが一致しません"
+      flash.notice = "メールアドレスとパスワードが一致しません"
     end
     redirect_to params[:from] || :root
   end

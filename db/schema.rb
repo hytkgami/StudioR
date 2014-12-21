@@ -20,10 +20,10 @@ ActiveRecord::Schema.define(:version => 20141213045948) do
     t.datetime "updated_at",  :null => false
   end
 
-  add_index "booked_materials", ["id"], :name => "bookedMaterials_id_index"
+  add_index "booked_materials", ["id"], :name => "index_booked_materials_on_id"
 
   create_table "bookings", :force => true do |t|
-    t.integer  "user_id"
+    t.integer  "member_id"
     t.date     "day"
     t.integer  "from"
     t.integer  "to"
@@ -33,7 +33,8 @@ ActiveRecord::Schema.define(:version => 20141213045948) do
     t.datetime "updated_at", :null => false
   end
 
-  add_index "bookings", ["id"], :name => "book_id_index"
+  add_index "bookings", ["id"], :name => "index_bookings_on_id"
+  add_index "bookings", ["member_id"], :name => "index_bookings_on_member_id"
 
   create_table "material_kinds", :force => true do |t|
     t.string   "name"
@@ -41,7 +42,7 @@ ActiveRecord::Schema.define(:version => 20141213045948) do
     t.datetime "updated_at", :null => false
   end
 
-  add_index "material_kinds", ["id"], :name => "materialKind_id_index"
+  add_index "material_kinds", ["id"], :name => "index_material_kinds_on_id"
 
   create_table "materials", :force => true do |t|
     t.string   "name"
@@ -51,7 +52,7 @@ ActiveRecord::Schema.define(:version => 20141213045948) do
     t.datetime "updated_at", :null => false
   end
 
-  add_index "materials", ["id"], :name => "material_id_index"
+  add_index "materials", ["id"], :name => "index_materials_on_id"
 
   create_table "members", :force => true do |t|
     t.string   "name"
@@ -64,7 +65,7 @@ ActiveRecord::Schema.define(:version => 20141213045948) do
     t.string   "hashed_password"
   end
 
-  add_index "members", ["id"], :name => "user_id_index"
+  add_index "members", ["id"], :name => "index_members_on_id"
 
   create_table "rooms", :force => true do |t|
     t.boolean  "deleted_at"
@@ -72,6 +73,6 @@ ActiveRecord::Schema.define(:version => 20141213045948) do
     t.datetime "updated_at", :null => false
   end
 
-  add_index "rooms", ["id"], :name => "room_id_index"
+  add_index "rooms", ["id"], :name => "index_rooms_on_id"
 
 end

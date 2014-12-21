@@ -12,4 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-datetimepicker
 //= require_tree .
+
+var data = {'data-date-format': 'yyyy-MM-dd hh' };
+$(function() {
+  $('.datepicker').attr(data);
+  $('.datepicker').datetimepicker();
+});

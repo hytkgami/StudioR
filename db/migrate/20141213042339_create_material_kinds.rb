@@ -6,7 +6,7 @@ class CreateMaterialKinds < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :material_kinds, :id, name: 'materialKind_id_index'
+    add_index :material_kinds, :id
   end
 
 end

@@ -1,0 +1,25 @@
+<% if @rooms.present? %>
+<h3>部屋の選択</h3>
+<% @rooms.each do |room| %>
+<table class="form">
+  <tr>
+    <th><%= form.radio_button :room_id, room.id %></th>
+    <td><%= room.id %></td>
+  </tr>
+</table>
+<% end %>
+<h3>日時の選択</h3>
+<p>
+予約日：<%= form.date_select :day,
+  start_year: Time.now.year,
+  end_year: Time.now.year+1,
+  use_month_numbers: true %>
+</p>
+<p>
+<% options = (0..23).to_a %>
+開始時間: <%= form.select :from, options %>
+終了時間: <%= form.select :to, options %>
+</p>
+<% else %>
+<p>部屋情報がありません。</p>
+<% end %>

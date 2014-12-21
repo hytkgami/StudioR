@@ -1,7 +1,7 @@
 class CreateBookings < ActiveRecord::Migration
   def change
     create_table :bookings do |t|
-      t.references :user           # ユーザID
+      t.references :member         # ユーザID
       t.date :day                  # 予約日
       t.integer :from              # 予約開始時間
       t.integer :to                # 予約終了時間
@@ -11,6 +11,7 @@ class CreateBookings < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :bookings, :id, name: 'book_id_index'
+    add_index :bookings, :id
+    add_index :bookings, :member_id
   end
 end

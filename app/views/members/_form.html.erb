@@ -1,8 +1,22 @@
-<tr>
-  <th><%= form.label :password %></th>
-  <td><%= form.password_field :password %></td>
-</tr>
-<tr>
-  <th><%= form.label :password_confirmation %></th>
-  <td><%= form.password_field :password_confirmation %></td>
-</tr>
+<table class="list">
+  <tr>
+    <th><%= form.label "名前" %></th>
+    <td><%= form.text_field :name %></td>
+  </tr>
+  <tr>
+    <th><%= form.label "電話番号" %></th>
+    <td><%= form.text_field :tel %></td>
+  </tr>
+  <tr>
+    <th><%= form.label "メールアドレス" %></th>
+    <td><%= form.text_field :email %></td>
+  </tr>
+  <tr>
+    <th><%= form.label "パスワード" %></th>
+    <td><%= form.password_field :password %></td>
+  </tr>
+  <tr>
+    <th><%= form.label "パスワード(確認用)" %></th>
+    <td><%= form.password_field :password_confirmation %></td>
+  </tr>
+</table>

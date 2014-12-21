@@ -1,8 +1,9 @@
 # coding: utf-8
 
 class MembersController < ApplicationController
-  # 詳細..?
+  # ログイン後に表示する会員情報
   def show
+    @member = Member.find(params[:id])
   end
 
   # 新規作成
@@ -12,6 +13,12 @@ class MembersController < ApplicationController
 
   # 登録
   def create
-    redirect_to @member, notice: "会員を登録しました。"
+    @member = Member.new(params[:member])
+    if @member.save
+      redirect_to @member, notice: "会員を登録しました。"
+    else
+      flash.notice = "会員登録に失敗しました。"
+      render "new"
+    end
   end
 end

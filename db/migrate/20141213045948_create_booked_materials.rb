@@ -6,6 +6,6 @@ class CreateBookedMaterials < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :booked_materials, :id, name: 'bookedMaterials_id_index'
+    add_index :booked_materials, :id
   end
 end

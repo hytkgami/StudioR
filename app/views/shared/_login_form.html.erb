@@ -1,12 +1,7 @@
-<h2>ログイン</h2>
+<% @title = 'ログイン' %>
 <div class="box">
-<p class="alert">
-<% if flash.alert %>
-<%= flash.alert %>
-<% end %>
-</p>
 <%= form_tag :session do %>
-<table id="login_form">
+<table class="form">
 <tr>
 <td align="right">メールアドレス：</td>
 <td><%= text_field_tag "email", "", style: "width: 120px" %></td>
@@ -23,4 +18,5 @@
 </table>
 <%= hidden_field_tag "from", request.path %>
 <% end %>
+<%= link_to "新規登録", :new_member %>
 </div>
