@@ -10,15 +10,20 @@
 <% end %>
 <h3>日時の選択</h3>
 <p>
-予約日：<%= form.date_select :day,
+<%= form.label "予約日" %>
+<%= form.date_select :day,
   start_year: Time.now.year,
   end_year: Time.now.year+1,
   use_month_numbers: true %>
 </p>
 <p>
-<% options = (0..23).to_a %>
-開始時間: <%= form.select :from, options %>
-終了時間: <%= form.select :to, options %>
+<% s = Time.now.hour.to_i  %>
+<% options1 = (s..23).to_a %>
+<% options2 = ((s+1)..23).to_a %>
+<%= form.label "開始時間" %>
+<%= form.select :from, options1 %>
+<%= form.label "終了時間" %>
+<%= form.select :to, options2 %>
 </p>
 <% else %>
 <p>部屋情報がありません。</p>
