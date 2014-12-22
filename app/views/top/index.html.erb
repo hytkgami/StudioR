@@ -1,4 +1,8 @@
 <h2>Top Page</h2>
 <div class="box">
 <p><%= @message %></p>
+<%= form_for :search_bookings, method: :get do |f| %>
+<p><%= f.text_field params[:q] %>
+<%= f.submit "検索" %></p>
+<% end %>
 </div>

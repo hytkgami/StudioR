@@ -2,7 +2,9 @@ Studio::Application.routes.draw do
   root to: "top#index"
 
   resources :members
-  resources :bookings
+  resources :bookings do
+    collection { get "search" }
+  end
   resources :rooms
   resource :account
 

@@ -1,0 +1,33 @@
+<div class="box">
+<table class="list">
+  <tr>
+    <th>ID</th>
+    <th>予約ID</th>
+    <th>予約者</th>
+    <th>日時</th>
+    <th>開始時間</th>
+    <th>終了時間</th>
+    <th>部屋番号</th>
+  </tr>
+<% @bookings.each do |booking| %>
+  <tr>
+    <td align="right"><%= booking.id %></td>
+    <td><%= booking.book_id %></td>
+    <% unless booking.member_id == nil %>
+    <% member = Member.find(booking.member_id) %>
+    <td>
+      <%= link_to [:admin, member] do %>
+        <span class="link" ><%= member.name %></span>
+      <% end %>
+    </td>
+    <% else %>
+    <td>-</td>
+    <% end %>
+    <td><%= booking.day %></td>
+    <td align="right"><%= booking.from %></td>
+    <td align="right"><%= booking.to %></td>
+    <td align="right"><%= booking.room_id %></td>
+  </tr>
+<% end %>
+</table>
+</div>

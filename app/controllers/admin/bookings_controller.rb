@@ -1,10 +1,9 @@
 # coding: utf-8
 
-class BookingsController < ApplicationController
-  # 検索
-  def search
-    @booking = Booking.search(params[:q])
-    redirect_to @booking
+class Admin::BookingsController < Admin::Base
+  # 一覧
+  def index
+    @bookings = Booking.order
   end
 
   # 予約詳細
