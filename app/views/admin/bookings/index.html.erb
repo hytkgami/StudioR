@@ -16,9 +16,7 @@
     <% unless booking.member_id == nil %>
     <% member = Member.find(booking.member_id) %>
     <td>
-      <%= link_to [:admin, member] do %>
-        <span class="link" ><%= member.name %></span>
-      <% end %>
+      <%= link_to [:admin, member] do %><%= member.name %><% end %>
     </td>
     <% else %>
     <td>-</td>

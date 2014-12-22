@@ -6,7 +6,9 @@
   </tr>
   <tr>
     <th>名前</th>
-    <td><%= @member.name %></td>
+    <td>
+      <%= link_to @member do %><%= @member.name %><% end %>
+    </td>
   </tr>
   <tr>
     <th>電話番号</th>

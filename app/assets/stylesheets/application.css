@@ -104,7 +104,7 @@ span.link:hover{
 	position: absolute;
 	width: 2%;
 	top: 0px;
-	left: 23%;
+	left: 10%;
 	height: 100%;
 	min-height: 100%;
 	border-color: #D0D0D0;
@@ -117,7 +117,7 @@ span.link:hover{
 	position: absolute;
 	width: 2%;
 	top: 0px;
-	left: 23%;
+	left: 10%;
 	height: 100%;
 	min-height: 100%;
 	border-right: #D0D0FF solid 6px;
@@ -130,7 +130,7 @@ span.link:hover{
 	position: absolute;
 	width: 2%;
 	top: 0px;
-	left: 23%;
+	left: 10%;
 	height: 100%;
 	min-height: 100%;
 	border-right: #FFD0D0 solid 6px;
@@ -141,20 +141,20 @@ span.link:hover{
 
 
 #logo{
-	margin: 0 5%;
+	margin: 0;
 	text-align:center;
 	width: 100%;
 }
 
 #logo-mini{
-	padding: 0 15%;
+	padding: 0 10%;
 	text-align:left;
 	width: auto;
 }
 
 
 #container{
-	margin:0px 18%;
+	margin:0px 5%;
 	padding :0 0;
 	height:100%;
 }
@@ -186,7 +186,7 @@ span.link:hover{
 	border:#DDD solid 1px;
 	padding: 20px;
 	background-color: rgba(252,252,252,0.7);
-	width: 80%;
+	width: 75%;
 	margin: auto;
 }
 
@@ -217,7 +217,7 @@ h3{
 	font-weight: normal;
 	padding:10px 0 0 0;
 	border-bottom:#AAA solid 1px;
-	width: 100%;
+	width: 80%;
 	margin: auto;
 }
 
@@ -242,6 +242,7 @@ table.list
 
 table.list td, th{
 	padding: 5px 8px;	
+  text-align: center;
 }
 
 table.list th{
@@ -300,4 +301,9 @@ table.list tr:hover td.hidden a:hover{
 table.form th{
 	font-weight: normal;
 	color: #888;
+}
+
+.field_with_errors {
+  background-color: #FCC;
+  padding: 2px;
 }
