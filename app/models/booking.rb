@@ -7,9 +7,9 @@ class Booking < ActiveRecord::Base
   attr_accessible :id, :member, :day, :from, :to, :room_id, :book_id
 
   # 空の値を受け付けない
-  validates :from, presence: true
+  validates :from, presence: true, numericality: { less_than: :to, message: :invalid_start_time }
   # 終了時間は開始時間よりも遅い時間でないと受け付けない
-  validates :to, presence: true, numericality: { greater_than: :from }
+  validates :to, presence: true, numericality: { greater_than: :from, message: :invalid_end_time }
 
   # クラスメソッド
   class << self

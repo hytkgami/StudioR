@@ -17,3 +17,7 @@ ja:
       material:
         name: 名前
 
+    errors:
+      messages:
+        invalid_start_time: "は終了時間よりも早い時間を入力してください。"
+        invalid_end_time: "は開始時間よりも遅い時間を入力してください。"

@@ -212,12 +212,18 @@ h2{
 	margin: 30px auto;
 }
 
+h2.error {
+  margin: 0 auto;
+  border: none;
+  background-color: #fcc;
+}
+
 h3{
 	color: #444;
 	font-weight: normal;
 	padding:10px 0 0 0;
 	border-bottom:#AAA solid 1px;
-	width: 80%;
+	width: 100%;
 	margin: auto;
 }
 
@@ -300,7 +306,7 @@ table.list tr:hover td.hidden a:hover{
 
 table.form th{
 	font-weight: normal;
-	color: #888;
+	color: #444;
 }
 
 .field_with_errors {

@@ -22,6 +22,7 @@ class BookingsController < ApplicationController
 
   # 新規予約登録
   def create
+    @rooms = Room.order("id") # Roomオブジェクトを取り出す
     @booking = Booking.new(params[:booking])
     @booking.assign_attributes(book_id: SecureRandom.hex(4), member: @current_member)
     if @booking.save
