@@ -6,7 +6,9 @@ Studio::Application.routes.draw do
     collection { get "search" }
   end
   resources :rooms
-  resource :account
+  resource :account do
+    resources :bookings
+  end
 
   namespace :admin do
     root to: "top#index"

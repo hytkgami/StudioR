@@ -7,6 +7,7 @@ class AccountsController < ApplicationController
   # 会員は自分の情報を見ることができる
   def show
     @member = @current_member
+    @bookings = Booking.where(member_id: @member.id).order("id DESC")
   end
 
   # 会員は退会できる

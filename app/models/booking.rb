@@ -11,6 +11,8 @@ class Booking < ActiveRecord::Base
   # 終了時間は開始時間よりも遅い時間でないと受け付けない
   validates :to, presence: true, numericality: { greater_than: :from, message: :invalid_end_time }
 
+  validate :check_day
+
   # クラスメソッド
   class << self
     def search(query)
@@ -19,6 +21,12 @@ class Booking < ActiveRecord::Base
         rel = rel.where("book_id ?", query).limit(1)
         logger.debug("@booking: #{rel.id}")
       end
+    end
+  end
+
+  def check_day
+    if day < Date.today
+      errors.add(:day, :invalid)
     end
   end
 end

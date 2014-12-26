@@ -4,6 +4,7 @@ class MembersController < ApplicationController
   # ログイン後に表示する会員情報
   def show
     @member = Member.find(params[:id])
+    @bookings = Booking.where(member_id: @member.id).order("id DESC")
   end
 
   # 新規作成

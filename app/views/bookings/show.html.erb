@@ -1,4 +1,5 @@
 <div class="box">
+<% if @current_member.administrator? || @booking.member_id == @current_member.id %>
 <table class="list">
   <% unless @booking.member_id == nil %>
   <tr>
@@ -27,7 +28,13 @@
     <td><%= @booking.to %></td>
   </tr>
 </table>
+<% if @booking.day > Date.today %>
 <%= link_to @booking, method: :delete, confirm: "キャンセルしますか?" do %>
   <span class="link">キャンセル</span>
+<% end %>
+<% else %>
+<% end %>
+<% else %>
+  <p>他人の予約へのアクセスは許可されていません。</p>
 <% end %>
 </div>
