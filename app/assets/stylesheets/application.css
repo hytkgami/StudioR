@@ -86,6 +86,10 @@ span.link:hover{
 	background-color: #D0D0D0;	
 	color: #EEE;
 }
+span.back {
+  margin: 2px 0;
+  padding: 0;
+}
 
 
 

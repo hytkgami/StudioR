@@ -1,7 +1,7 @@
 class Booking < ActiveRecord::Base
   has_many :bookedMaterials, dependent: :destroy
   has_many :materials, through: :bookedMaterials, dependent: :destroy
-  belongs_to :Room
+  belongs_to :room
   belongs_to :member
 
   attr_accessible :id, :member, :day, :from, :to, :room_id, :book_id
