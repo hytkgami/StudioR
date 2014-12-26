@@ -6,6 +6,11 @@ class Booking < ActiveRecord::Base
 
   attr_accessible :id, :member, :day, :from, :to, :room_id, :book_id
 
+  # 空の値を受け付けない
+  validates :from, presence: true
+  # 終了時間は開始時間よりも遅い時間でないと受け付けない
+  validates :to, presence: true, numericality: { greater_than: :from }
+
   # クラスメソッド
   class << self
     def search(query)

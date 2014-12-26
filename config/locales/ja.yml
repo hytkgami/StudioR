@@ -2,9 +2,18 @@ ja:
   activerecord:
     models:
       member: 会員情報
+      booking: 予約情報
+      material: 機材情報
+      room: 部屋情報
     attributes:
       member:
         name: 名前
         email: メールアドレス
         administrator: 管理者
+      booking:
+        day: 予約日
+        from: 開始時間
+        to: 終了時間
+      material:
+        name: 名前
 
