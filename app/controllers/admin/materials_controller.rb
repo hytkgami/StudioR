@@ -31,7 +31,7 @@ class Admin::MaterialsController < Admin::Base
     @material = Material.find(params[:id])
     @material.assign_attributes(params[:material])
     if @material.save
-      redirect_to [:admin, @material], notice: "機材情報を更新しました。"
+      redirect_to @material, notice: "機材情報を更新しました。"
     else
       render "edit"
     end
