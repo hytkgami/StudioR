@@ -15,5 +15,10 @@
       <td><%= @material.name %></td>
     </tr>
   </table>
-  <%= link_to "戻る", :back %>
+  <%= link_to [:edit_admin, @material] do %>
+    <span class="link">編集</span>
+  <% end %>
+  <%= link_to :back do %>
+    <span class="link">戻る</span>
+  <% end %>
 </div>

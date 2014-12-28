@@ -11,7 +11,7 @@
     </tr>
   <% end %>
 </table>
-<%= form_for @material do |form| %>
+<%= form_for [:admin, @material] do |form| %>
   <%= render "form", form: form %>
   <p><%= form.submit %></p>
 <% end %>
