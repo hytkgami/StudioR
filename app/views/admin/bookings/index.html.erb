@@ -4,7 +4,8 @@
     <th>ID</th>
     <th>予約ID</th>
     <th>予約者</th>
-    <th>日時</th>
+    <th>申請日</th>
+    <th>予約日時</th>
     <th>開始時間</th>
     <th>終了時間</th>
     <th>部屋番号</th>
@@ -21,6 +22,7 @@
     <% else %>
     <td>-</td>
     <% end %>
+    <td><%= booking.created_at.strftime("%y-%m-%d %H:%M:%S") %></td>
     <td><%= booking.day %></td>
     <td align="right"><%= booking.from %></td>
     <td align="right"><%= booking.to %></td>
