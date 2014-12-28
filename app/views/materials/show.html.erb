@@ -19,6 +19,9 @@
   <%= link_to [:edit_admin, @material] do %>
     <span class="link">編集</span>
   <% end %>
+  <%= link_to [:admin, @material], method: :delete do %>
+    <span class="link">削除</span>
+  <% end %>
   <% end %>
   <%= link_to :back do %>
     <span class="link">戻る</span>

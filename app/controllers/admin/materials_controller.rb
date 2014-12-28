@@ -40,6 +40,6 @@ class Admin::MaterialsController < Admin::Base
   def destroy
     @material = Material.find(params[:id])
     @material.destroy
-    redirect_to :materials, notice: "機材を削除しました。"
+    redirect_to :admin_materials, notice: "機材を削除しました。"
   end
 end
