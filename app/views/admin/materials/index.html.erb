@@ -1,0 +1,20 @@
+<div class="box">
+<% if @materials %>
+  <table class="list">
+    <tr> 
+      <th>機材ID</th>
+      <th>機材種別</th>
+      <th>機材名</th>
+    </tr>
+    <% @materials.each do |material| %>
+      <tr>
+        <td align="right"><%= material.id %></td>
+        <td><%= MaterialKind.find(material.kind_id).name %></td>
+        <td><%= material.name %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>機材は登録されていません。</p>
+<% end %>
+</div>

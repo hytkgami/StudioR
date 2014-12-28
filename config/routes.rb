@@ -8,7 +8,7 @@ Studio::Application.routes.draw do
   # 部屋
   resources :rooms
   # 機材
-  resources :materials
+  resources :materials, only: [:index, :show]
 
   resource :account do
     resources :bookings, only: [:show]
