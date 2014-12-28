@@ -14,6 +14,7 @@ ja:
         day: 予約日
         from: 開始時間
         to: 終了時間
+        mflag: 機材を予約する
       material:
         name: 名前
 

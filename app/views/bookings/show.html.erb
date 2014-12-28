@@ -12,11 +12,15 @@
     <td><%= @booking.book_id %></td>
   </tr>
   <tr>
+    <th>申請日時</th>
+    <td><%= @booking.created_at.strftime("%y-%m-%d %H:%M:%S") %></td>
+  </tr>
+  <tr>
     <th>部屋番号</th>
     <td><%= @booking.room_id %></td>
   </tr>
   <tr>
-    <th>日にち</th>
+    <th>予約日</th>
     <td><%= @booking.day %></td>
   </tr>
   <tr>
@@ -26,6 +30,10 @@
   <tr>
     <th>終了時間</th>
     <td><%= @booking.to %></td>
+  </tr>
+  <tr>
+    <th>機材予約の有無</th>
+    <td><%= @booking.mflag ? "○" : "-" %></td>
   </tr>
 </table>
 <% if @booking.day > Date.today %>

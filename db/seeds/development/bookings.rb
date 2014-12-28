@@ -8,7 +8,8 @@
                  from: time.hour,
                  to: time.hour + rand(6) + 1,
                  room_id: rand(4) + 1,
-                 book_id: string
+                 book_id: string,
+                 mflag: false
                 )
 end
 

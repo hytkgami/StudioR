@@ -4,7 +4,7 @@ class Booking < ActiveRecord::Base
   belongs_to :room
   belongs_to :member
 
-  attr_accessible :id, :member, :day, :from, :to, :room_id, :book_id
+  attr_accessible :id, :member, :day, :from, :to, :room_id, :book_id, :mflag
 
   # 空の値を受け付けない
   validates :from, presence: true, numericality: { less_than: :to, message: :invalid_start_time }

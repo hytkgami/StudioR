@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20141213045948) do
     t.integer  "to"
     t.integer  "room_id"
     t.string   "book_id"
+    t.boolean  "mflag"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

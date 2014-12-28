@@ -1,13 +1,17 @@
 Studio::Application.routes.draw do
   root to: "top#index"
 
+  # 会員
   resources :members
-  resources :bookings do
-    collection { get "search" }
-  end
+  # 予約
+  resources :bookings
+  # 部屋
   resources :rooms
+  # 機材
+  resources :materials
+
   resource :account do
-    resources :bookings
+    resources :bookings, only: [:show]
   end
 
   namespace :admin do
@@ -17,14 +21,14 @@ Studio::Application.routes.draw do
       member { put "recover" } # メンバーの再開
     end
     # 予約を閲覧,詳細確認,作成,削除できる
-    resources :bookings, only: [:index, :show, :new, :create, :destroy]
+    resources :bookings, only: [:index, :show, :destroy]
     # 部屋を閲覧,削除できる
     resources :rooms, only: [:index, :destroy]
     # 機材を閲覧,編集,登録,削除できる
     resources :materials
   end
 
+  # ログイン用ルーティング
   get "login" => "top#login", as: "login"
-
   resource :session, only: [:create, :destroy]
 end
