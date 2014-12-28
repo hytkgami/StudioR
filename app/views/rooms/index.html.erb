@@ -1,14 +1,14 @@
-<% if @rooms.present? %>
+<% @title = '部屋一覧' %>
+
+<div class="box">
 <table class="list">
+  <tr>
+    <th>ID</th>
+  </tr>
   <% @rooms.each do |room| %>
   <tr>
-    <td align="right">
-      <%= form.radio_button :select, room.id %>
-    </td>
-    <td><%= room.name %></td>
+    <td align="right"><%= room.id %></td>
   </tr>
   <% end %>
 </table>
-<% else %>
-<p>部屋情報がありません。</p>
-<% end %>
+</div>
