@@ -8,7 +8,8 @@ class Member < ActiveRecord::Base
 
   validates :password, presence: { on: :create }, confirmation: { allow_blank: true }
   validates :name, presence: true,
-    format: { with: /\A[A-Za-z]\w*\z/, allow_blank: true },
+    format: { with: /\A[A-Za-z]\w*\z/, allow_blank: true,
+              message: :invalid_member_name },
     length: { minimum: 2, maximum: 20, allow_blank: true },
     uniqueness: { case_sensitive: false }
   validate :check_email

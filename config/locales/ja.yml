@@ -10,6 +10,8 @@ ja:
         name: 名前
         email: メールアドレス
         administrator: 管理者
+        password: パスワード
+        password_confirmation: 確認用パスワード
       booking:
         day: 予約日
         from: 開始時間
@@ -22,3 +24,4 @@ ja:
       messages:
         invalid_start_time: "は終了時間よりも早い時間を入力してください。"
         invalid_end_time: "は開始時間よりも遅い時間を入力してください。"
+        invalid_member_name: "はすでに他のユーザーに使用されています。"
