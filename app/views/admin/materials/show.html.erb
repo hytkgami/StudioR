@@ -1,0 +1,19 @@
+<div class="box">
+  <h3><%= @material.name %></h3>
+  <p>このへんに画像入れたら点数高いっしょ↓</p>
+  <table class="list">
+   <tr>
+      <th>ID</th>
+      <td><%= @material.id %></td>
+    </tr>
+    <tr>
+      <th>機材種別</th>
+      <td><%= MaterialKind.find(@material.kind_id).name %></td>
+    </tr>
+    <tr>
+      <th>名称</th>
+      <td><%= @material.name %></td>
+    </tr>
+  </table>
+  <%= link_to "戻る", :back %>
+</div>

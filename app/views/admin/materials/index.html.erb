@@ -10,7 +10,7 @@
       <tr>
         <td align="right"><%= material.id %></td>
         <td><%= MaterialKind.find(material.kind_id).name %></td>
-        <td><%= material.name %></td>
+        <td><%= link_to material.name, [:admin, material] %></td>
       </tr>
     <% end %>
   </table>

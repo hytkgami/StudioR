@@ -1,0 +1,18 @@
+<div class="box">
+<table class="list">
+  <tr>
+    <th>機材種別ID</th>
+    <th>機材種別名</th>
+  </tr>
+  <% @kinds.each do |kind| %>
+    <tr>
+      <td><%= kind.id %></td>
+      <td><%= kind.name %></td>
+    </tr>
+  <% end %>
+</table>
+<%= form_for @material do |form| %>
+  <%= render "form", form: form %>
+  <p><%= form.submit %></p>
+<% end %>
+</div>
