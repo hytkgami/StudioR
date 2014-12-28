@@ -1,0 +1,18 @@
+<table class="form">
+  <tr>
+    <th>ID</th>
+    <td><%= @member.id %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :name %></th>
+    <td><%= @member.name %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :tel %></th>
+    <td><%= form.text_field :tel %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :email %></th>
+    <td><%= form.text_field :email %></td>
+  </tr>
+</table>

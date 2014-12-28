@@ -10,7 +10,24 @@ class AccountsController < ApplicationController
     @bookings = Booking.where(member_id: @member.id).order("id DESC")
   end
 
+  def edit
+    @member = @current_member
+  end
+
+  def update
+    @member = @current_member
+    @member.assign_attributes(params[:member])
+    if @member.save
+      redirect_to :account, notice: "アカウント情報を更新しました。"
+    else
+      render "edit"
+    end
+  end
+
   # 会員は退会できる
   def destroy
+    @member = @current_member
+    @member.destroy
+    redirect_to :root, notice: "退会しました。"
   end
 end
