@@ -36,7 +36,7 @@
     <td><%= @booking.mflag ? "○" : "-" %></td>
   </tr>
 </table>
-<% if @booking.day > Date.today %>
+<% if @current_member.administrator? || (@booking.day > Date.today && @current_member == Member.find(@booking.member_id)) %>
 <%= link_to @booking, method: :delete, confirm: "キャンセルしますか?" do %>
   <span class="link">キャンセル</span>
 <% end %>

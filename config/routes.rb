@@ -4,7 +4,9 @@ Studio::Application.routes.draw do
   # 会員
   resources :members
   # 予約
-  resources :bookings
+  resources :bookings do
+    collection { get "search", "search_available" }
+  end
   # 部屋
   resources :rooms
   # 機材

@@ -1,0 +1,14 @@
+<% @title = "予約" %>
+
+<div class="box">
+<p>予約したい日時を入力してください。</p>
+<% option1 = (6..22).to_a %>
+<% option2 = (7..23).to_a %>
+<%= form_tag :search_available_bookings, method: :get do %>
+  <p><%= date_select "q", params[:q], start_year: Time.now.year,
+      end_year: Time.now.year+1, use_month_numbers: true %>
+    <%= select "start", params[:start], option1 %>
+    <%= select "finish", params[:finish], option2 %>
+  <%= submit_tag "検索" %></p>
+<% end %>
+</div>

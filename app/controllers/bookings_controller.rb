@@ -4,8 +4,17 @@ class BookingsController < ApplicationController
   # 検索
   def search
     @booking = Booking.search(params[:q])
-    redirect_to @booking
+    if @booking
+      redirect_to @booking
+    else
+      redirect_to :root, notice: "該当する予約はありませんでした。"
+    end
   end
+
+  # 予約可能な部屋を検索
+  # def search_available
+    # @rooms = Booking.search_available(params[:q], params[:start], params[:finish])
+  # end
 
   # 予約詳細
   def show
