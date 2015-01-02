@@ -46,11 +46,12 @@ class BookingsController < ApplicationController
   def create
     @rooms = Room.order("id") # Roomオブジェクトを取り出す
     @booking = Booking.new(params[:booking])
-    @book_id = @booking.assign_attributes(book_id: SecureRandom.hex(4).to_s, member: @current_member)
+    @book_id = SecureRandom.hex(4).to_s
+    @booking.assign_attributes(book_id: @book_id, member: @current_member)
     session[:book_id] = @book_id
+    session[:booking] = @booking
     # 機材予約チェックボックスがtrueならば
     if @booking.mflag
-      session[:booking] = @booking
       if @booking.save
         redirect_to @booking, notice: "部屋の予約を登録しました。"
       else

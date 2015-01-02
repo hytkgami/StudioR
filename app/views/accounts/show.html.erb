@@ -21,7 +21,9 @@
     <td><%= @member.email %></td>
   </tr>
 </table>
-
+<%= link_to :edit_account do %>
+  <span class="link">基本情報の編集</span>
+<% end %>
 <% if @bookings %>
 <h3>予約履歴</h3>
 <table class="list">
@@ -38,9 +40,6 @@
   </tr>
 <% end %>
 </table>
-<% end %>
-<%= link_to :edit_account do %>
-  <span class="link">編集</span>
 <% end %>
 <span class="back"><%= link_to "戻る", :back %></span>
 </div>
