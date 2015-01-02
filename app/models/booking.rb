@@ -20,20 +20,6 @@ class Booking < ActiveRecord::Base
     def search(query)
       rel = find_by_book_id(query)
     end
-
-    # 日にち, 開始時刻, 終了時刻
-    def search_available(query, start, finish)
-      rel = where("day >= ?", query) # 入力された日付以降の予約 
-      request = (start..finish) # 開始から終了までの範囲オブジェクト
-      reserved = Array.new # 予約されている部屋の情報
-      rel.each do |booking|
-        if request.in?((booking.from)..(booking.to))
-          reserved << booking.room_id
-        end
-      end
-      arr = reserved.uniq # 重複を消去
-      Room.where(id: arr)
-    end
   end
 
   def check_day

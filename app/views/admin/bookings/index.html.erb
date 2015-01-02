@@ -15,14 +15,14 @@
 <% @bookings.each do |booking| %>
   <tr>
     <td align="right"><%= booking.id %></td>
-    <td><%= booking.book_id %></td>
+    <td><%= link_to booking.book_id, booking %></td>
     <% unless booking.member_id == nil %>
     <% member = Member.find(booking.member_id) %>
     <td>
       <%= link_to [:admin, member] do %><%= member.name %><% end %>
     </td>
     <% else %>
-    <td>-</td>
+    <td>Guest</td>
     <% end %>
     <td><%= booking.created_at.strftime("%y-%m-%d %H:%M:%S") %></td>
     <td><%= booking.day %></td>

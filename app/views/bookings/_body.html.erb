@@ -1,0 +1,43 @@
+<table class="list">
+  <% unless @booking.member_id == nil %>
+  <tr>
+    <th>予約者</th>
+    <td><%= Member.find(@booking.member_id).name %></td>
+  </tr>
+  <% end %>
+  <tr>
+    <th>予約ID</th>
+    <td><%= @booking.book_id %></td>
+  </tr>
+  <tr>
+    <th>申請日時</th>
+    <td><%= @booking.created_at.strftime("%y-%m-%d %H:%M:%S") %></td>
+  </tr>
+  <tr>
+    <th>部屋番号</th>
+    <td><%= @booking.room_id %></td>
+  </tr>
+  <tr>
+    <th>予約日</th>
+    <td><%= @booking.day %></td>
+  </tr>
+  <tr>
+    <th>開始時間</th>
+    <td><%= @booking.from %></td>
+  </tr>
+  <tr>
+    <th>終了時間</th>
+    <td><%= @booking.to %></td>
+  </tr>
+  <tr>
+    <th>機材予約の有無</th>
+    <td><%= @booking.mflag ? "○" : "-" %></td>
+  </tr>
+</table>
+<% if @current_member %>
+<% if @booking.day > Date.today && @current_member == Member.find(@booking.member_id) %>
+<%= link_to @booking, method: :delete, confirm: "キャンセルしますか?" do %>
+  <span class="link">キャンセル</span>
+<% end %>
+<% end %>
+<% end %>

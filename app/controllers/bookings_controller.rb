@@ -3,6 +3,7 @@
 class BookingsController < ApplicationController
   # 検索
   def search
+    session[:book_id] = params[:q]
     @booking = Booking.search(params[:q])
     if @booking
       redirect_to @booking
@@ -12,18 +13,31 @@ class BookingsController < ApplicationController
   end
 
   # 予約可能な部屋を検索
-  # def search_available
-    # @rooms = Booking.search_available(params[:q], params[:start], params[:finish])
-  # end
+  def search_available
+    if params[:date]
+      year = params[:date][:year]
+      month = params[:date][:month]
+      day = params[:date][:day]
+    else
+      year = Time.now.year.to_i
+      month = Time.now.month.to_i
+      day = Time.now.day.to_i
+    end
+
+    @date = Time.mktime(year, month, day)
+    @rooms = Booking.search_available(@date, params[:start].to_i, params[:finish].to_i)
+  end
 
   # 予約詳細
   def show
+    logger.debug(session)
+    @book_id = session[:book_id] if session[:book_id]
     @booking = Booking.find(params[:id])
   end
 
   # 新規予約
   def new
-    @rooms = Room.order("id") # Roomオブジェクトを取り出す
+    @rooms = Room.order # Roomオブジェクトを取り出す
     @booking = Booking.new
     @booking.room_id = 1 # 最初からラジオボタンを選択状態に
   end
@@ -32,7 +46,8 @@ class BookingsController < ApplicationController
   def create
     @rooms = Room.order("id") # Roomオブジェクトを取り出す
     @booking = Booking.new(params[:booking])
-    @booking.assign_attributes(book_id: SecureRandom.hex(4), member: @current_member)
+    @book_id = @booking.assign_attributes(book_id: SecureRandom.hex(4).to_s, member: @current_member)
+    session[:book_id] = @book_id
     # 機材予約チェックボックスがtrueならば
     if @booking.mflag
       session[:booking] = @booking
