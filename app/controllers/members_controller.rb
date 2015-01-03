@@ -1,7 +1,7 @@
 # coding: utf-8
 
 class MembersController < ApplicationController
-  # ログイン後に表示する会員情報
+  # 会員情報
   def show
     @member = Member.find(params[:id])
   end

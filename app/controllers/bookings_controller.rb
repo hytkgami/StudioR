@@ -70,6 +70,7 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
+    session[:booking].delete; session[:book_id].delete
     redirect_to :root, notice: "予約をキャンセルしました。"
   end
 end
