@@ -4,4 +4,8 @@ class Material < ActiveRecord::Base
   belongs_to :MaterialKind
   
   attr_accessible :id, :name, :kind_id, :deleted_at
+
+  def get_kind_name(id)
+    MaterialKind.find(id).name
+  end
 end

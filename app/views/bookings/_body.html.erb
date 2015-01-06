@@ -1,3 +1,4 @@
+<h3>予約詳細</h3>
 <table class="list">
   <% unless @booking.member_id == nil %>
   <tr>
@@ -34,6 +35,21 @@
     <td><%= @booking.mflag ? "○" : "-" %></td>
   </tr>
 </table>
+<% if @materials.present? %>
+<h3>予約した機材の一覧</h3>
+<table class="list">
+  <tr>
+    <th>予約機材種別</th>
+    <th>予約機材名称</th>
+  </tr>
+  <% @materials.each do |material| %>
+  <tr>
+    <td><%= material.get_kind_name(material.kind_id) %></td>
+    <td><%= material.name %></td>
+  </tr>
+  <% end %>
+</table>
+<% end %>
 <% if @current_member && @booking.member_id %>
 <% if @booking.day > Date.today && @current_member == Member.find(@booking.member_id) %>
 <%= link_to @booking, method: :delete, confirm: "キャンセルしますか?" do %>

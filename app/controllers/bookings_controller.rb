@@ -17,6 +17,8 @@ class BookingsController < ApplicationController
     logger.debug(session)
     @book_id = session[:book_id] if session[:book_id]
     @booking = Booking.find(params[:id])
+    material_array = BookedMaterial.where(booking_id: @booking.id).map(&:material_id)
+    @materials = Material.where(id: material_array)
   end
 
   # 新規予約
@@ -38,7 +40,7 @@ class BookingsController < ApplicationController
     # 機材予約チェックボックスがtrueならば
     if @booking.mflag
       if @booking.save
-        redirect_to @booking, notice: "部屋の予約を登録しました。"
+        redirect_to :new_booked_Material, notice: "部屋の予約を登録しました。"
       else
         render "new"
       end

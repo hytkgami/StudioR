@@ -5,12 +5,15 @@ Studio::Application.routes.draw do
   resources :members, only: [:show, :new, :create]
   # 予約
   resources :bookings, only: [:show, :new, :create, :destroy] do
-    collection { get "search", "search_available" }
+    collection { get "search" }
   end # 部屋
   resources :rooms, only: :index
   # 機材
   resources :materials, only: [:index, :show]
+  # 機材予約
+  resources :booked_Materials, only: [:new, :create]
 
+  # アカウント
   resource :account, only: [:show, :edit, :update, :destroy] do
     resources :bookings, only: [:show]
   end
