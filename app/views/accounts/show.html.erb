@@ -1,4 +1,5 @@
 <% @title = "マイアカウント" %>
+<div class="lbody">
 <div class="box">
 <h3>基本情報</h3>
 <table class="list">
@@ -24,6 +25,9 @@
 <%= link_to :edit_account do %>
   <span class="link">基本情報の編集</span>
 <% end %>
+<%= link_to :account, method: :delete, confirm: "本当に退会しますか?" do %>
+  <span class="link">退会する</span>
+<% end %>
 <% if @bookings %>
 <h3>予約履歴</h3>
 <table class="list">
@@ -42,4 +46,5 @@
 </table>
 <% end %>
 <span class="back"><%= link_to "戻る", :back %></span>
+</div>
 </div>

@@ -1,30 +1,14 @@
 <% @title = '予約一覧' %>
 
-<div class="lbody">
 <div class="box">
 <table class="list">
   <tr>
-    <th>ID</th>
-    <th>予約ID</th>
-    <th>予約者</th>
-    <th>申請日</th>
-    <th>予約日時</th>
     <th>開始時間</th>
     <th>終了時間</th>
     <th>部屋番号</th>
   </tr>
 <% @bookings.each do |booking| %>
   <tr>
-    <td align="right"><%= booking.id %></td>
-    <td><%= link_to booking.book_id, booking %></td>
-    <% unless booking.member_id == nil %>
-    <% member = Member.find(booking.member_id) %>
-    <td>
-      <%= link_to [:admin, member] do %><%= member.name %><% end %>
-    </td>
-    <% else %>
-    <td>Guest</td>
-    <% end %>
     <td><%= booking.created_at.strftime("%y-%m-%d %H:%M:%S") %></td>
     <td><%= booking.day %></td>
     <td align="right"><%= booking.from %></td>
@@ -33,5 +17,4 @@
   </tr>
 <% end %>
 </table>
-</div>
 </div>

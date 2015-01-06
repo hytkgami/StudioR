@@ -1,8 +1,31 @@
+<div class="lbody">
 <%= render "shared/error", obj: @booking %>
 <% @title = "予約" %>
+<div class="box">
+<h3>本日の予約</h3>
+<% if @bookings.present? %>
+<table class="list">
+  <tr>
+    <th>部屋番号</th>
+    <th>開始時間</th>
+    <th>終了時間</th>
+  </tr>
+<% @bookings.each do |booking| %>
+  <tr>
+    <td align="right"><%= booking.room_id %></td>
+    <td align="right"><%= booking.from %></td>
+    <td align="right"><%= booking.to %></td>
+  </tr>
+<% end %>
+</table>
+<% else %>
+<p>今日の予約はありません。</p>
+<% end %>
+</div>
 <div class="box">
 <%= form_for @booking do |form| %>
 <%= render "form_for_rooms_and_date", form: form %>
 <p><%= form.submit %></p>
 <% end %>
+</div>
 </div>

@@ -1,5 +1,6 @@
 <% @title = '会員一覧' %>
 <% if @members %>
+<div class="lbody">
 <div class="box">
 <% if flash.notice %>
 <p class="alert"><%= flash.notice %></p>
@@ -48,4 +49,5 @@
 <% else %>
 <p>会員情報がありません。</p>
 <% end %>
+</div>
 

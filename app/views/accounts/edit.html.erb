@@ -1,4 +1,5 @@
 <%= render "shared/error", obj: @member %>
+<div class="lbody">
 <div class="box">
 
 <p><%= link_to "マイアカウントに戻る", :account %></p>
@@ -7,4 +8,5 @@
   <%= render "members/form", form: form %>
   <p><%= form.submit %></p>
 <% end %>
+</div>
 </div>

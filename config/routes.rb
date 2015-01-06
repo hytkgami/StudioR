@@ -2,17 +2,16 @@ Studio::Application.routes.draw do
   root to: "top#index"
 
   # 会員
-  resources :members
+  resources :members, only: [:show, :new, :create]
   # 予約
-  resources :bookings do
+  resources :bookings, only: [:show, :new, :create, :destroy] do
     collection { get "search", "search_available" }
-  end
-  # 部屋
-  resources :rooms
+  end # 部屋
+  resources :rooms, only: :index
   # 機材
   resources :materials, only: [:index, :show]
 
-  resource :account do
+  resource :account, only: [:show, :edit, :update, :destroy] do
     resources :bookings, only: [:show]
   end
 

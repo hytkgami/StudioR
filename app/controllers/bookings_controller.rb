@@ -12,22 +12,6 @@ class BookingsController < ApplicationController
     end
   end
 
-  # 予約可能な部屋を検索
-  def search_available
-    if params[:date]
-      year = params[:date][:year]
-      month = params[:date][:month]
-      day = params[:date][:day]
-    else
-      year = Time.now.year.to_i
-      month = Time.now.month.to_i
-      day = Time.now.day.to_i
-    end
-
-    @date = Time.mktime(year, month, day)
-    @rooms = Booking.search_available(@date, params[:start].to_i, params[:finish].to_i)
-  end
-
   # 予約詳細
   def show
     logger.debug(session)
@@ -37,6 +21,7 @@ class BookingsController < ApplicationController
 
   # 新規予約
   def new
+    @bookings = Booking.where("day = ?", Time.now)
     @rooms = Room.order # Roomオブジェクトを取り出す
     @booking = Booking.new
     @booking.room_id = 1 # 最初からラジオボタンを選択状態に

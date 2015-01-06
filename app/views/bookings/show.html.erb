@@ -1,3 +1,4 @@
+<div class="lbody">
 <div class="box">
 <% if @current_member %>
 <% if @current_member.administrator? || @booking.member_id == @current_member.id %>
@@ -7,3 +8,5 @@
   <%= render "body" %>
 <% end %>
 </div>
+</div>
+
