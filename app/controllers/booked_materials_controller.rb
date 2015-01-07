@@ -2,7 +2,10 @@
 
 class BookedMaterialsController < ApplicationController
   def new
-    @materials = Material.order("kind_id")
+    @materials = Array.new
+    1.upto(9) do |i|
+      @materials << Material.where(kind_id: i)
+    end
   end
 
   def create

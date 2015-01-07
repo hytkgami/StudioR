@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
     @book_id = session[:book_id] if session[:book_id]
     @booking = Booking.find(params[:id])
     material_array = BookedMaterial.where(booking_id: @booking.id).map(&:material_id)
-    @materials = Material.where(id: material_array)
+    @materials = Material.where(id: material_array).order("kind_id")
   end
 
   # 新規予約
@@ -57,7 +57,6 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-    session[:booking].delete; session[:book_id].delete
     redirect_to :root, notice: "予約をキャンセルしました。"
   end
 end

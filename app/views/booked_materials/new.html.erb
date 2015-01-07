@@ -2,24 +2,26 @@
 <% @title = "機材予約" %>
 <div class="box">
 <% if @materials.present? %>
+<h3>機材を選択してください。</h3>
 <%= form_tag :booked_Materials, method: :post do %>
-<table class="form">
-  <tr>
-    <th>選択</th>
-    <th>種類</th>
-    <th>名称</th>
-  </tr>
   <% @materials.each do |material| %>
-  <tr>
-  <%= hidden_field_tag 'materials[][id]', material.id %>
-  <%= hidden_field_tag 'materials[][flag]', 0 %>
-    <td><%= check_box_tag 'materials[][flag]' %></td>
-    <td><%= material.get_kind_name(material.kind_id) %></td>
-    <td><%= material.name %></td>
-  </tr>
+  <h3><%= material[0].get_kind_name(material[0].kind_id) %></h3>
+  <table class="list">
+    <tr>
+      <th>選択</th>
+      <th>名称</th>
+    </tr>
+    <% material.each do |item| %>
+    <tr>
+    <%= hidden_field_tag 'materials[][id]', item.id %>
+    <%= hidden_field_tag 'materials[][flag]', 0 %>
+      <td><%= check_box_tag 'materials[][flag]' %></td>
+      <td><%= item.name %></td>
+    </tr>
+    <% end %>
+  </table>
   <% end %>
-</table>
-<p><%= submit_tag "送信" %></p>
+  <p><%= submit_tag "送信" %></p>
 <% end %>
 <% else %>
 <p>機材情報がありません。</p>
