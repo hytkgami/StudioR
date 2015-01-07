@@ -28,7 +28,7 @@
 <%= link_to :account, method: :delete, confirm: "本当に退会しますか?" do %>
   <span class="link">退会する</span>
 <% end %>
-<% if @bookings %>
+<% if @bookings.present? %>
 <h3>予約履歴</h3>
 <table class="list">
   <tr>
