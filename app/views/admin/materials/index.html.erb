@@ -12,7 +12,7 @@
     <% @materials.each do |material| %>
       <tr>
         <td align="right"><%= material.id %></td>
-        <td><%= MaterialKind.find(material.kind_id).name %></td>
+        <td><%= material.get_kind_name(material.kind_id) %></td>
         <td><%= link_to material.name, material %></td>
       </tr>
     <% end %>
