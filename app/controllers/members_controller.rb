@@ -15,7 +15,7 @@ class MembersController < ApplicationController
   def create
     @member = Member.new(params[:member])
     if @member.save
-      redirect_to @member, notice: "会員を登録しました。"
+      redirect_to @member, notice: "ようこそ, #{@member.name}さん。"
     else
       flash.notice = "会員登録に失敗しました。"
       render "new"

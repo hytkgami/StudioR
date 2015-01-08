@@ -13,6 +13,7 @@
     <th>Eメール</th>
     <th>管理者権限</th>
     <th>削除状態</th>
+    <th>管理</th>
   </tr>
   <% @members.each do |member| %>
     <tr>
@@ -33,11 +34,11 @@
     <td align="center">-</td>
     <% end %>
     <% unless member.deleted? %>
-    <td class="hidden">
+    <td>
     <%= link_to "削除", [:admin, member], method: :delete, confirm: "本当に削除しますか?" %>
     </td>
     <% else %>
-    <td class="hidden">
+    <td>
       <%= link_to "消去", [:admin, member], method: :delete, confirm: "本当に削除しますか?" %> |
       <%= link_to "復活", [:recover, :admin, member], method: :put %>
     </td>

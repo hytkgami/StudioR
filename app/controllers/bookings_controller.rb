@@ -8,7 +8,7 @@ class BookingsController < ApplicationController
     if @booking
       redirect_to @booking
     else
-      redirect_to :root, notice: "該当する予約はありませんでした。"
+      redirect_to :root, notice: "#{params[:q]}に該当する予約はありませんでした。"
     end
   end
 
@@ -40,7 +40,7 @@ class BookingsController < ApplicationController
     # 機材予約チェックボックスがtrueならば
     if @booking.mflag
       if @booking.save
-        redirect_to :new_booked_Material, notice: "部屋の予約を登録しました。"
+        redirect_to :new_booked_Material, notice: "予約したい機材を選択してください。"
       else
         render "new"
       end
@@ -57,6 +57,6 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to :root, notice: "予約をキャンセルしました。"
+    redirect_to :root, notice: "#{@booking.day.strftime("%Y年%m月%d日")}の予約をキャンセルしました。"
   end
 end
