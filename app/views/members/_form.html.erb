@@ -20,4 +20,6 @@
     <td><%= form.password_field :password_confirmation %></td>
   </tr>
 </table>
-<p>パスワードを変更しないときは, パスワード入力欄を空にしてください。</p>
+<% if @current_member %>
+  <p>パスワードを変更しないときは, パスワード入力欄を空にしてください。</p>
+<% end %>
