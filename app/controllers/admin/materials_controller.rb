@@ -40,6 +40,12 @@ class Admin::MaterialsController < Admin::Base
   def destroy
     @material = Material.find(params[:id])
     @material.destroy
-    redirect_to :admin_materials, notice: "機材を削除しました。"
+    redirect_to :admin_materials, notice: "#{@material.name}を使用不可にしました。"
+  end
+
+  def recover
+    @material = Material.with_deleted.find(params[:id])
+    @material.recover
+    redirect_to :admin_members, notice: "#{@material.name}を使用可能にしました。"
   end
 end

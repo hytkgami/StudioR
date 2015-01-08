@@ -29,7 +29,9 @@ Studio::Application.routes.draw do
     # 部屋を閲覧,削除できる
     resources :rooms, only: [:index, :destroy]
     # 機材を閲覧,編集,登録,削除できる
-    resources :materials
+    resources :materials do
+      member { put "recover" }
+    end
   end
 
   # ログイン用ルーティング
