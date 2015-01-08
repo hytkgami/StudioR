@@ -1,10 +1,12 @@
 <% @title = "TOP PAGE" %>
 <div class="lbody">
 <div class="box">
-<p>フォームに予約IDを入力して検索が可能です。</p>
-<%= form_tag :search_bookings, method: :get do %>
-<p><%= text_field_tag "q",  params[:q] %>
-<%= submit_tag "検索" %></p>
-<% end %>
+  <h3>About</h3>
+  <p>音楽スタジオの予約サイトです。</p>
+  <p>フォームに予約IDを入力して検索が可能です。</p>
+  <%= form_tag :search_bookings, method: :get do %>
+    <p><%= text_field_tag "q",  params[:q] %>
+    <%= submit_tag "検索" %></p>
+  <% end %>
 </div>
 </div>
