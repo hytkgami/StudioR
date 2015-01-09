@@ -17,6 +17,12 @@
 var timer = new Array(13);
 var time  = new Array(13);
 
+$(document).ready(function(){
+  $('.head').click(function(){
+    $(this).next('.row').stop(true, true).slideToggle();
+  });
+});
+
 window.onload = function(){
   for(var i = 1; i < timer.length; i++ ){
     timer[i] = document.getElementById("timer" + i).innerHTML;
@@ -57,6 +63,4 @@ function addTo(){
     }
   }
 }
-
-
 

@@ -5,8 +5,8 @@
 <h3>機材を選択してください。</h3>
 <%= form_tag :booked_Materials, method: :post do %>
   <% @materials.each do |material| %>
-  <h3><%= material[0].get_kind_name(material[0].kind_id) %></h3>
-  <table class="list">
+  <h3 class="head"><%= material[0].get_kind_name(material[0].kind_id) %></h3>
+  <table class="list row" style="display: none;">
     <tr>
       <th>選択</th>
       <th>名称</th>
