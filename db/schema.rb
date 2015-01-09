@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141213045948) do
+ActiveRecord::Schema.define(:version => 20150109050334) do
 
   create_table "booked_materials", :force => true do |t|
     t.integer  "booking_id"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20141213045948) do
     t.boolean  "mflag"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.boolean  "deleted_at"
   end
 
   add_index "bookings", ["id"], :name => "index_bookings_on_id"

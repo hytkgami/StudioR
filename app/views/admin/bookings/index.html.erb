@@ -12,6 +12,7 @@
     <th>開始時間</th>
     <th>終了時間</th>
     <th>部屋番号</th>
+    <th>管理</th>
   </tr>
 <% @bookings.each do |booking| %>
   <tr>
@@ -30,6 +31,11 @@
     <td align="right"><%= booking.from %></td>
     <td align="right"><%= booking.to %></td>
     <td align="right"><%= booking.room_id %></td>
+    <% unless booking.deleted? %>
+    <td><%= link_to "削除", [:admin, booking], method: :delete, confirm: "この予約を削除してもよろしいですか？" %></td>
+    <% else %>
+    <td>削除済み</td>
+    <% end %>
   </tr>
 <% end %>
 </table>

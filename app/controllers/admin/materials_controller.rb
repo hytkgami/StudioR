@@ -2,7 +2,7 @@
 
 class Admin::MaterialsController < Admin::Base 
   def index
-    @materials = Material.order("kind_id")
+    @materials = Material.with_deleted.order("kind_id")
   end
 
   def show

@@ -6,6 +6,7 @@ class Booking < ActiveRecord::Base
   belongs_to :room
   belongs_to :member
 
+  acts_as_paranoid
   attr_accessible :id, :member, :day, :from, :to, :room_id, :book_id, :mflag
 
   # 空の値を受け付けない
