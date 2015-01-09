@@ -18,6 +18,49 @@ var timer = new Array(13);
 var time  = new Array(13);
 
 $(document).ready(function(){
+  // マウスオーバーで表示,アウトで非表示
+  $('span#list1').hover(
+    // hover then
+    function() {
+      $('#detail1').css("display", "inline");
+    },
+    // out then
+    function() {
+      $('#detail1').css("display", "none");
+    }
+  );
+
+  $('span#list2').hover(
+    // hover then
+    function() {
+      $('#detail2').css("display", "inline");
+    },
+    // out then
+    function() {
+      $('#detail2').css("display", "none");
+    }
+  );
+  $('span#list3').hover(
+    // hover then
+    function() {
+      $('#detail3').css("display", "inline");
+    },
+    // out then
+    function() {
+      $('#detail3').css("display", "none");
+    }
+  );
+  $('span#list4').hover(
+    // hover then
+    function() {
+      $('#detail4').css("display", "inline");
+    },
+    // out then
+    function() {
+      $('#detail4').css("display", "none");
+    }
+  );
+  // クリックで開閉
   $('.head').click(function(){
     $(this).next('.row').stop(true, true).slideToggle();
   });

@@ -2,12 +2,26 @@
 
 <div class="lbody">
 <div class="box">
-<ul>
-<li><%= link_to "会員管理", :admin_members %></li>
-<li><%= link_to "予約管理", :admin_bookings %></li>
-<li><%= link_to "機材管理", :admin_materials %></li>
-<li><%= link_to "部屋管理", :admin_rooms %></li>
-</ul>
+<span id="list1" class="link"><%= link_to "会員管理", :admin_members %></span>
+<span id="list2" class="link"><%= link_to "予約管理", :admin_bookings %></span>
+<span id="list3" class="link"><%= link_to "機材管理", :admin_materials %></span>
+<span id="list4" class="link"><%= link_to "部屋管理", :admin_rooms %></span>
+<div class="message_area">
+<p>
+<span id="detail1" style="display: none;">
+会員管理を行います。会員一覧の確認や会員の停止, 復活や削除を実行することができます。
+</span>
+<span id="detail2" style="display: none;">
+予約管理を行います。予約一覧の確認や, 予約の削除を実行することができます。
+</span>
+<span id="detail3" style="display: none;">
+機材管理を行います。機材が故障した場合に予約不可に設定することができます。
+</span>
+<span id="detail4" style="display: none;">
+部屋管理を行います。部屋の一覧を確認することができます。
+</span>
+</p>
+</div>
 </div>
 </div>
 

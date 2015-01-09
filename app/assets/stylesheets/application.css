@@ -317,3 +317,7 @@ table.form th{
   background-color: #FCC;
   padding: 2px;
 }
+
+.message_area {
+  height: 30px;
+}
