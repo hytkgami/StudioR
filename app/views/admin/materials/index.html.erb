@@ -8,6 +8,7 @@
       <th>機材ID</th>
       <th>機材種別</th>
       <th>機材名</th>
+      <th>停止状態</th>
       <th>使用許可</th>
     </tr>
     <% @materials.each do |material| %>
@@ -15,8 +16,9 @@
         <td align="right"><%= material.id %></td>
         <td><%= material.get_kind_name(material.kind_id) %></td>
         <td><%= link_to material.name, material %></td>
+        <td><%= material.deleted? ? "○" : "-" %></td>
         <% if material.deleted? %>
-          <td><%= link_to "復活", :recover_admin_material %></td>
+          <td><%= link_to "復活", [:recover, :admin, material], method: :put %></td>
         <% else %>
           <td><%= link_to "停止", [:admin, material], method: :delete %></td>
         <% end %>

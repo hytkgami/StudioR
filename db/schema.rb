@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150109050334) do
+ActiveRecord::Schema.define(:version => 20150111072317) do
 
   create_table "booked_materials", :force => true do |t|
     t.integer  "booking_id"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(:version => 20150109050334) do
   create_table "materials", :force => true do |t|
     t.string   "name"
     t.integer  "kind_id"
-    t.boolean  "deleted_at"
+    t.datetime "deleted_at"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(:version => 20150109050334) do
     t.string   "tel"
     t.string   "email"
     t.boolean  "administrator",   :default => false, :null => false
-    t.boolean  "deleted_at"
+    t.datetime "deleted_at"
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
     t.string   "hashed_password"

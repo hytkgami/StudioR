@@ -32,12 +32,13 @@ class Admin::MembersController < Admin::Base
   def destroy
     @member = Member.with_deleted.find(params[:id])
     @member.destroy
-    redirect_to :admin_members, notice: "#{@member.name}さんを停止しました。"
+    redirect_to :admin_members, notice: "#{@member.name}さんを削除しました。"
   end
 
   # 会員の復活
   def recover
     @member = Member.with_deleted.find(params[:id])
+    logger.debug("---- @member = #{@member.name} -----") 
     @member.recover
     redirect_to :admin_members, notice: "#{@member.name}さんの停止を取り消しました。"
   end

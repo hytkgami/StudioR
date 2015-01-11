@@ -23,25 +23,21 @@
     </td>
     <td><%= member.tel %></td>
     <td><%= member.email %></td>
-    <% if member.administrator %>
-    <td align="center">○</td>
+    <td align="center"><%= member.administrator? ? "○" : "-" %></td>
+    <td align="center"><%= member.deleted? ? "○" : "-" %></td>
+    <% if member.administrator? %>
+    <td>-</td>
     <% else %>
-    <td align="center">-</td>
-    <% end %>
-    <% if member.deleted_at != nil %>
-    <td align="center">○</td>
-    <% else %>
-    <td align="center">-</td>
-    <% end %>
-    <% unless member.deleted? %>
-    <td>
-    <%= link_to "削除", [:admin, member], method: :delete, confirm: "本当に削除しますか?" %>
-    </td>
-    <% else %>
-    <td>
-      <%= link_to "消去", [:admin, member], method: :delete, confirm: "本当に削除しますか?" %> |
-      <%= link_to "復活", [:recover, :admin, member], method: :put %>
-    </td>
+      <% unless member.deleted? %>
+      <td>
+      <%= link_to "削除", [:admin, member], method: :delete, confirm: "本当に削除しますか?" %>
+      </td>
+      <% else %>
+      <td>
+       <%= link_to "消去", [:admin, member], method: :delete, confirm: "本当に削除しますか?" %> |
+       <%= link_to "復活", [:recover, :admin, member], method: :put %>
+      </td>
+      <% end %>
     <% end %>
   </tr>
   <% end %>

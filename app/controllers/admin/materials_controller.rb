@@ -46,6 +46,6 @@ class Admin::MaterialsController < Admin::Base
   def recover
     @material = Material.with_deleted.find(params[:id])
     @material.recover
-    redirect_to :admin_members, notice: "#{@material.name}を使用可能にしました。"
+    redirect_to :admin_materials, notice: "#{@material.name}を使用可能にしました。"
   end
 end
