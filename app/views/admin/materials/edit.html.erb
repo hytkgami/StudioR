@@ -12,7 +12,7 @@
     </tr>
   <% end %>
 </table>
-<%= form_for [:admin, @material] do |form| %>
+<%= form_for [:admin, @material], html: { multipart: true } do |form| %>
   <%= render "form", form: form %>
   <p><%= form.submit %></p>
 <% end %>

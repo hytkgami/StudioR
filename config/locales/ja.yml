@@ -19,6 +19,11 @@ ja:
         mflag: 機材を予約する
       material:
         name: 名前
+      material_image:
+        uploaded_image: 画像
+        _destroy: 削除する
+      image:
+        uploaded_image: 画像
 
     errors:
       messages:

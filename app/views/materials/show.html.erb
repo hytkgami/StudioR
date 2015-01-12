@@ -3,9 +3,12 @@
 <div class="lbody">
 <div class="box">
   <h3><%= @material.name %></h3>
-  <p>このへんに画像入れたら点数高いっしょ↓</p>
   <table class="list">
-   <tr>
+    <tr>
+      <th>画像</th>
+      <td><%= material_image_tag @material, style: "width: 100%;" %></td>
+    </tr>
+    <tr>
       <th>ID</th>
       <td><%= @material.id %></td>
     </tr>
@@ -25,9 +28,6 @@
   <%= link_to [:admin, @material], method: :delete do %>
     <span class="link">削除</span>
   <% end %>
-  <% end %>
-  <%= link_to :back do %>
-    <span class="link">戻る</span>
   <% end %>
 </div>
 </div>

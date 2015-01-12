@@ -25,6 +25,7 @@ class Admin::MaterialsController < Admin::Base
   def edit
     @kinds = MaterialKind.order
     @material = Material.find(params[:id])
+    @material.build_image unless @material.image
   end
   
   def update

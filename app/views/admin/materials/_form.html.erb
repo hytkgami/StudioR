@@ -1,4 +1,20 @@
 <table class="form">
+<%= form.fields_for :image do |imgf| %>
+  <tr>
+    <th><%= imgf.label :uploaded_image %></th>
+    <td>
+      <%= imgf.file_field :uploaded_image %>
+      <% if !imgf.object.new_record? && imgf.object.errors.empty? %>
+        <div>
+          <%= material_image_tag @material %>
+          <%= imgf.check_box :_destroy %>
+          <%= imgf.label :_destroy %>
+          <%= imgf.hidden_field :id %>
+        </div>
+      <% end %>
+    </td>
+  </tr>
+<% end %>
   <tr>
     <th><%= form.label :kind_id %></th>
     <td><%= form.text_field :kind_id %></td>

@@ -1,0 +1,25 @@
+<% @title = '機材一覧' %>
+
+<div class="lbody">
+<div class="box">
+<% if @materials %>
+  <% @materials.each do |material| %>
+  <h3 class="head"><%= "▼"+material[0].get_kind_name(material[0].kind_id) %></h3>
+  <table class="list row" style="display: none;">
+    <tr> 
+      <th>機材ID</th>
+      <th>機材名</th>
+    </tr>
+    <% material.each do |item| %>
+    <tr>
+      <td align="right"><%= item.id %></td>
+      <td><%= link_to item.name, item %></td>
+    </tr>
+    <% end %>
+  </table>
+  <% end %>
+<% else %>
+  <p>機材は登録されていません。</p>
+<% end %>
+</div>
+</div>
