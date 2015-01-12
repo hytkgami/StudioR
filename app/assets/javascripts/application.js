@@ -64,6 +64,14 @@ $(document).ready(function(){
   $('.head').click(function(){
     $(this).next('.row').stop(true, true).slideToggle();
   });
+  // すべて開くボタン
+  var cnt = 0;
+  var message = ['すべて開く', 'すべて閉じる'];
+  $('#open').click(function(){
+    cnt = (cnt + 1) % 2
+    $('.row').stop(true, true).slideToggle();
+    $(this).html(message[cnt]);
+  });
 });
 
 window.onload = function(){
