@@ -9,6 +9,7 @@ ja:
       member:
         name: 名前
         email: メールアドレス
+        tel: 電話番号
         administrator: 管理者
         password: パスワード
         password_confirmation: 確認用パスワード
@@ -30,3 +31,5 @@ ja:
         invalid_start_time: "は終了時間よりも早い時間を入力してください。"
         invalid_end_time: "は開始時間よりも遅い時間を入力してください。"
         invalid_member_name: "はすでに他のユーザーに使用されています。"
+        invalid_tel: "は半角数字で入力してください。"
+        invalid_name_format: "は半角英数字を入力してください。"
