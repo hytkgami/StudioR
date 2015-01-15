@@ -2,6 +2,7 @@
 
 <div class="lbody">
 <div class="box">
+  <p>本日の予約がハイライトされています。</p>
 <table class="list">
   <tr>
     <th>ID</th>
@@ -15,7 +16,11 @@
     <th>管理</th>
   </tr>
 <% @bookings.each do |booking| %>
+  <% if booking.day == Date.today %>
+  <tr class="highlight">
+  <% else %>
   <tr>
+  <% end %>
     <td align="right"><%= booking.id %></td>
     <td><%= link_to booking.book_id, booking %></td>
     <% unless booking.member_id == nil %>

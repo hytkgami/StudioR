@@ -18,9 +18,13 @@
   <% @members.each do |member| %>
     <tr>
     <td align="right"><%= member.id %></td>
+    <% if member.deleted? %>
+    <td><%= member.name %></td>
+    <% else %>
     <td>
       <%= link_to [:admin, member] do %><%= member.name %><% end %>
     </td>
+    <% end %>
     <td><%= member.tel %></td>
     <td><%= member.email %></td>
     <td align="center"><%= member.administrator? ? "○" : "-" %></td>

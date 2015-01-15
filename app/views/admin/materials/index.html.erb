@@ -15,7 +15,11 @@
       <tr>
         <td align="right"><%= material.id %></td>
         <td><%= material.get_kind_name(material.kind_id) %></td>
+        <% if material.deleted? %>
+        <td><%= material.name %></td>
+        <% else %>
         <td><%= link_to material.name, material %></td>
+        <% end %>
         <td><%= material.deleted? ? "○" : "-" %></td>
         <% if material.deleted? %>
           <td><%= link_to "復活", [:recover, :admin, material], method: :put %></td>

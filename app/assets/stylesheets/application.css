@@ -270,6 +270,11 @@ table.list td{
 	margin: 0;
 }
 
+table.list tr.highlight td {
+  background: #E38692;
+  margin: 100px;
+}
+
 table.list tr:hover{
 	font-weight: normal;
 	color:#222;
