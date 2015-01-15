@@ -23,16 +23,16 @@ ActiveRecord::Schema.define(:version => 20150111155819) do
   add_index "booked_materials", ["id"], :name => "index_booked_materials_on_id"
 
   create_table "bookings", :force => true do |t|
-    t.integer   "member_id"
-    t.date      "day"
-    t.integer   "from"
-    t.integer   "to"
-    t.integer   "room_id"
-    t.string    "book_id"
-    t.boolean   "mflag"
-    t.datetime  "created_at", :null => false
-    t.datetime  "updated_at", :null => false
-    t.timestamp "deleted_at"
+    t.integer  "member_id"
+    t.date     "day"
+    t.integer  "from"
+    t.integer  "to"
+    t.integer  "room_id"
+    t.string   "book_id"
+    t.boolean  "mflag"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.datetime "deleted_at"
   end
 
   add_index "bookings", ["id"], :name => "index_bookings_on_id"
