@@ -5,7 +5,7 @@ class CreateMembers < ActiveRecord::Migration
       t.string :tel             # 電話番号
       t.string :email           # メールアドレス
       t.boolean :administrator, null: false, default: false  # 管理者フラグ
-      t.boolean :deleted_at     # 削除状態
+      t.datetime :deleted_at     # 削除状態
 
       t.timestamps
     end

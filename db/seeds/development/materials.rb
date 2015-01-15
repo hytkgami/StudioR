@@ -3,9 +3,10 @@ require 'csv'
 
 CSV.foreach('db/seeds/development/Materials.csv','r') do |row|
   material = Material.create(
-                  name: row[1],
-                  kind_id: row[0].to_i
-                 )
+    { name: row[1],
+      kind_id: row[0].to_i,
+      deleted_at: nil
+    }, without_protection: true)
 
   fname = Rails.root.join("app/assets/images", "no_image_x3.png")
   MaterialImage.create(
