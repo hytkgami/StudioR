@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     else
       flash.notice = "メールアドレスとパスワードが一致しません"
     end
-    redirect_to :root
+    redirect_to params[:from] || :root
   end
 
   # セッション破棄
