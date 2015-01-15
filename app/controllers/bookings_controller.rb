@@ -8,7 +8,8 @@ class BookingsController < ApplicationController
     if @booking
       redirect_to @booking
     else
-      redirect_to :root, notice: "#{params[:q]}に該当する予約はありませんでした。"
+      redirect_to :root, notice: "#{params[:q]}に該当する予約はありませんでした。" if params[:q] != ""
+      redirect_to :root, notice: "該当する予約はありませんでした。" if params[:q] == ""
     end
   end
 
