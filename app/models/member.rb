@@ -13,6 +13,7 @@ class Member < ActiveRecord::Base
     length: { minimum: 2, maximum: 20, allow_blank: true },
     uniqueness: { case_sensitive: false, message: :invalid_member_name }
   validate :check_email
+  validates :email, uniqueness: { case_sensitive: false, message: :invalid_member_name }
   validates :tel, format: { with: /[0-9]/, message: :invalid_tel },
     length: { minimum: 6, maximum: 13 }
 
