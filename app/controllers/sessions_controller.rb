@@ -6,10 +6,11 @@ class SessionsController < ApplicationController
     member = Member.authenticate(params[:email], params[:password])
     if member
       session[:user_id] = member.id
+      redirect_to :root
     else
       flash.notice = "メールアドレスとパスワードが一致しません"
+    redirect_to params[:from]
     end
-    redirect_to params[:from] || :root
   end
 
   # セッション破棄
