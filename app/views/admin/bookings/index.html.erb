@@ -24,7 +24,7 @@
     <td align="right"><%= booking.id %></td>
     <td><%= link_to booking.book_id, booking %></td>
     <% unless booking.member_id == nil %>
-    <% member = Member.find(booking.member_id) %>
+    <% member = Member.with_deleted.find(booking.member_id) %>
     <td>
       <%= link_to [:admin, member] do %><%= member.name %><% end %>
     </td>
