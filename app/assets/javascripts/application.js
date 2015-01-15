@@ -18,6 +18,7 @@ var timer = new Array(13);
 var time  = new Array(13);
 
 $(document).ready(function(){
+  var cnt = 0;
   // マウスオーバーで表示,アウトで非表示
   $('span#list1').hover(
     // hover then
@@ -65,11 +66,14 @@ $(document).ready(function(){
     $(this).next('.row').stop(true, true).slideToggle();
   });
   // すべて開くボタン
-  var cnt = 0;
   var message = ['すべて開く', 'すべて閉じる'];
-  $('#open').click(function(){
+  $('.open').click(function(){
     cnt = (cnt + 1) % 2
-    $('.row').stop(true, true).slideToggle();
+    if (cnt == 0) {
+      $('.row').stop(true, true).slideUp();
+    } else {
+      $('.row').stop(true, true).slideDown();
+    }
     $(this).html(message[cnt]);
   });
 });
