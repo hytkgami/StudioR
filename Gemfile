@@ -53,3 +53,5 @@ end
 gem 'acts_as_paranoid'
 
 gem 'bootstrap-datetimepicker-rails'
+
+gem 'gon'

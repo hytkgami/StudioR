@@ -24,7 +24,8 @@ class BookingsController < ApplicationController
 
   # 新規予約
   def new
-    @bookings = Booking.where("day = ?", Time.now)
+    gon.reserved_table = Booking.get_reserved
+    @bookings = Booking.where(day: Date.today) # 今日の予約を取り出す
     @rooms = Room.order # Roomオブジェクトを取り出す
     @booking = Booking.new
     @booking.room_id = 1 # 最初からラジオボタンを選択状態に
@@ -32,6 +33,7 @@ class BookingsController < ApplicationController
 
   # 新規予約登録
   def create
+    gon.reserved_table = Booking.get_reserved
     @rooms = Room.order("id") # Roomオブジェクトを取り出す
     @booking = Booking.new(params[:booking])
     @book_id = SecureRandom.hex(4).to_s

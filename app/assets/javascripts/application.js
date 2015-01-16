@@ -76,46 +76,21 @@ $(document).ready(function(){
     }
     $(this).html(message[cnt]);
   });
+  // タイムテーブルを埋める処理
+  console.log(gon.reserved_table);
+  var tmp, cells;
+  for(var i=0; i<4; i++) {
+    tmp = $('tr#room'+i);
+    console.log(tmp);
+    cells = $('tr#room'+(i+1)+' td:first-child').next();
+    console.log(cells);
+    for(var j=0; j<=24; j++) {
+      if (gon.reserved_table[i][j] == 1) {
+        cells.removeClass("blue");
+        cells.addClass("red");
+      }
+      cells = cells.next();
+    }
+  }
 });
-
-window.onload = function(){
-  for(var i = 1; i < timer.length; i++ ){
-    timer[i] = document.getElementById("timer" + i).innerHTML;
-    time[i] = i + "時"
-  }
-  addfrom();
-  console.log(time);
-}
-
-
-
-function addfrom(){
-  from = document.getElementById("booking_from")
-  for(var i = 1; i < timer.length; i++ ){
-    if(timer[i] == 0){
-      var option = document.createElement('option');
-      option.innerHTML = time[i];
-      option.setAttribute("value", i)
-      from.appendChild(option); 
-    }
-  }
-}
-
-function addTo(){
-  fromTime = parseInt(from[from.selectedIndex].value)
-  to = document.getElementById("booking_to")
-  to.length = 0;
-  for(var i = fromTime; i <= time.length; i++ ){
-    if(timer[i] == 1){
-      break;
-    }
-    else{
-      console.log(i)
-      var option = document.createElement('option');
-      option.innerHTML = time[i+1];
-      option.setAttribute("value", i+1)
-      to.appendChild(option)
-    }
-  }
-}
 
