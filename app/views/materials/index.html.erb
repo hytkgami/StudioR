@@ -4,8 +4,9 @@
 <div class="box">
 <% if @materials %>
   <button class="open">すべて開く</button>
-  <% @materials.each do |material| %>
-  <h3 class="head"><%= material[0].get_kind_name(material[0].kind_id) %></h3>
+  <% @materials.each do |material| -%>
+  <% kind_name = material[0].get_kind_name(material[0].kind_id) -%>
+  <h3 class="head"><%= kind_name %></h3>
   <table class="list row" style="display: none;">
     <tr> 
       <th>機材ID</th>

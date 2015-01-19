@@ -68,7 +68,7 @@ $(document).ready(function(){
   // すべて開くボタン
   var message = ['すべて開く', 'すべて閉じる'];
   $('.open').click(function(){
-    cnt = (cnt + 1) % 2
+    cnt = (cnt + 1) % 2;
     if (cnt == 0) {
       $('.row').stop(true, true).slideUp();
     } else {
