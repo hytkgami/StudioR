@@ -4,8 +4,11 @@
 <% if @current_member.administrator? || @booking.member_id == @current_member.id %>
   <%= render "body" %>
 <% end %>
-<% elsif @booking.book_id == @book_id %>
+<% elsif @booking.book_id == @book_id && @booking.member_id.nil? %>
   <%= render "body" %>
+<% else %>
+  <h3>通知</h3>
+  <p>他人の予約を見ることはできません。</p>
 <% end %>
 </div>
 </div>

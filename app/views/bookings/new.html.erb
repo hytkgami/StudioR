@@ -2,39 +2,7 @@
 <%= render "shared/error", obj: @booking %>
 <% @title = "予約" %>
 <div class="box">
-  <div align="center"><p><%= Date.today.strftime("%Y年%m月%d日") %>の予約</p></div>
-<table class="timetable">
-  <tr>
-    <th>room</th>
-    <% 0.upto(24) do |i| %>
-      <th><%= i %></th>
-    <% end %>
-  </tr>
-  <tr id="room1">
-    <td class="room_id">1</td>
-    <% 0.upto(24) do |i| %>
-      <td class="blue"></td>
-    <% end %>
-  </tr>
-  <tr id="room2">
-    <td class="room_id">2</td>
-    <% 0.upto(24) do |i| %>
-      <td class="blue"></td>
-    <% end %>
-  </tr>
-  <tr id="room3">
-    <td class="room_id">3</td>
-    <% 0.upto(24) do |i| %>
-      <td class="blue"></td>
-    <% end %>
-  </tr>
-  <tr id="room4">
-    <td class="room_id">4</td>
-    <% 0.upto(24) do |i| %>
-      <td class="blue"></td>
-    <% end %>
-  </tr>
-</table>
+  <%= render "shared/today_time_table" %>
 <%= form_for @booking do |form| %>
 <%= render "form_for_rooms_and_date", form: form %>
 <p><%= form.submit %></p>

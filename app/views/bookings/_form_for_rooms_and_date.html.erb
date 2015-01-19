@@ -3,13 +3,13 @@
 <% @rooms.each do |room| %>
 <table class="form">
   <tr>
-    <th><%= form.radio_button :room_id, room.id %></th>
+    <th><%= form.radio_button :room_id, room.id, class: "radioButton", id: "button#{room.id}" %></th>
     <td><%= room.id %></td>
   </tr>
 </table>
 <% end %>
 <h3>日時の選択</h3>
-<% options = (6..23).to_a %>
+<% options = (0..24).to_a -%>
 <table class="form">
   <tr>
     <th><%= form.label :day %></th>
