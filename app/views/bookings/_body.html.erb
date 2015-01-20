@@ -30,10 +30,6 @@
     <th>終了時間</th>
     <td><%= @booking.to %></td>
   </tr>
-  <tr>
-    <th>機材予約の有無</th>
-    <td><%= @booking.mflag ? "○" : "-" %></td>
-  </tr>
 </table>
 <% if @materials.present? %>
 <h3>予約した機材の一覧</h3>
