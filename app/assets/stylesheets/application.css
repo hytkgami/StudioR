@@ -232,8 +232,6 @@ h3{
 	margin: auto;
 }
 
-
-
 a.link{
 	padding: 2px;
 	text-decoration: none;
@@ -249,6 +247,8 @@ a.link:hover{
 table.list
 {
 	border-width: 0px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 table.list td, th{
@@ -329,8 +329,7 @@ table.form th{
 }
 
 table.timetable {
-  width: 70%;
-  margin: 0 auto;
+  width: 100%;
 }
 
 table.timetable tr th {

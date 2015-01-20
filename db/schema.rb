@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150111155819) do
+ActiveRecord::Schema.define(:version => 20150120033351) do
 
   create_table "booked_materials", :force => true do |t|
     t.integer  "booking_id"
@@ -78,6 +78,16 @@ ActiveRecord::Schema.define(:version => 20150111155819) do
   end
 
   add_index "members", ["id"], :name => "index_members_on_id"
+
+  create_table "room_images", :force => true do |t|
+    t.integer  "room_id",                          :null => false
+    t.binary   "data",         :limit => 20971520
+    t.string   "content_type"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+  end
+
+  add_index "room_images", ["room_id"], :name => "index_room_images_on_room_id"
 
   create_table "rooms", :force => true do |t|
     t.datetime "deleted_at"

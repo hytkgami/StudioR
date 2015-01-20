@@ -16,6 +16,7 @@ class Booking < ActiveRecord::Base
 
   validate :check_day
   validate :check_unique
+  validate :check_time
 
   # クラスメソッド
   class << self
@@ -38,6 +39,16 @@ class Booking < ActiveRecord::Base
   def check_day
     if day < Date.today
       errors.add(:day, :invalid)
+    end
+  end
+
+  def check_time
+    if day == Date.today && from <= Time.now.hour
+      errors.add(:from, :invalid)
+    end
+
+    if day == Date.today && to <= Time.now.hour
+      errors.add(:to, :invalid)
     end
   end
 
