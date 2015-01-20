@@ -3,6 +3,7 @@
 class Admin::BookingsController < Admin::Base
   # 一覧
   def index
+    gon.reserved_table = Booking.get_reserved
     @bookings = Booking.with_deleted.order
   end
 
