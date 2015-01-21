@@ -1,13 +1,11 @@
 <% if @rooms.present? %>
 <h3>部屋の選択</h3>
+<p>
 <% @rooms.each do |room| %>
-<table class="form">
-  <tr>
-    <th><%= form.radio_button :room_id, room.id, class: "radioButton", id: "button#{room.id}" %></th>
-    <td><%= room.id %></td>
-  </tr>
-</table>
+<%= form.radio_button :room_id, room.id, class: "radioButton", id: "button#{room.id}" %>
+<%= room.id %>
 <% end %>
+</p>
 <h3>日時の選択</h3>
 <% options = (0..24).to_a -%>
 <table class="form">

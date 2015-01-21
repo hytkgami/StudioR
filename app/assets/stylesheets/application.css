@@ -276,7 +276,7 @@ table.list tr.highlight td {
 }
 
 table.list tr.expirated td {
-  background: #E38692;
+  background: #888;
   margin: 100px;
 }
 

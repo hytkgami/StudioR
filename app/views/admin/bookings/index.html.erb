@@ -16,8 +16,11 @@
     <th>部屋番号</th>
     <th>管理</th>
   </tr>
+<% today = Date.today %>
 <% @bookings.each do |booking| %>
-  <% if booking.day == Date.today %>
+  <% if booking.day < today %>
+  <tr class="expirated">
+  <% elsif booking.day == today %>
   <tr class="highlight">
   <% else %>
   <tr>
