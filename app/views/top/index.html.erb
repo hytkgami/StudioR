@@ -9,6 +9,29 @@
     <p><%= text_field_tag "q",  params[:q] %>
     <%= submit_tag "検索" %></p>
   <% end %>
+  <% options = (0..24).to_a -%>
+  <h3>使用可能な部屋を検索</h3>
+  <p>予約を希望する日時を選択し、検索してください。</p>
+  <%= form_tag :search_available_bookings, method: :get do %>
+  <table class="form">
+    <tr>
+      <th><%= label_tag "日付" %></th>
+      <td><%= select_date Date.today, prefix: "date", use_month_numbers: true %></td>
+    </tr>
+    <tr>
+      <th><%= label_tag "開始時間" %></th>
+      <td><%= select_tag 'from', options_for_select(options) %></td>
+    </tr>
+    <tr>
+      <th><%= label_tag "終了時間" %></th>
+      <td><%= select_tag 'to', options_for_select(options) %></td>
+    </tr>
+    <tr>
+      <td><%= submit_tag "検索" %></td>
+    </tr>
+  </table>
+  <% end %>
+  <h3>機材一覧を見る</h3>
   <%= form_tag :materials, method: :get do %>
     <p><button>機材一覧を見る</button></p>
   <% end %>

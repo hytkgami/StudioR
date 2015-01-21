@@ -5,7 +5,7 @@ Studio::Application.routes.draw do
   resources :members, only: [:show, :new, :create]
   # 予約
   resources :bookings, only: [:show, :new, :create, :destroy] do
-    collection { get "search" }
+    collection { get "search", "search_available" }
   end # 部屋
   resources :rooms, only: :index
   # 機材

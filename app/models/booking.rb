@@ -24,8 +24,8 @@ class Booking < ActiveRecord::Base
       rel = find_by_book_id(query)
     end
 
-    def get_reserved
-      bookings = where(day: Date.today)
+    def get_reserved(day = Date.today)
+      bookings = where(day: day)
       arr = Array.new(4){ Array.new(24){0} }
       bookings.each do |booking|
         for i in (booking.from)...(booking.to) do

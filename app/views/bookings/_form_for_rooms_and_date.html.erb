@@ -12,15 +12,15 @@
   <tr>
     <th><%= form.label :day %></th>
     <td><%= form.date_select :day, start_year: Time.now.year,
-      end_year: Time.now.year+1, use_month_numbers: true %></td>
+      end_year: Time.now.year+1, use_month_numbers: true, defalut: @default_date %></td>
   </tr>
   <tr>
     <th><%= form.label :from %></th>
-    <td><%= form.select :from, options %></td>
+    <td><%= form.select :from, options, selected: @default_from %></td>
   </tr>
   <tr>
     <th><%= form.label :to %></th>
-    <td><%= form.select :to, options %></td>
+    <td><%= form.select :to, options, selected: @default_to %></td>
   </tr>
   <tr>
     <th><%= form.label :mflag %></th>

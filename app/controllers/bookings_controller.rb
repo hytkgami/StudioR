@@ -13,6 +13,28 @@ class BookingsController < ApplicationController
     end
   end
 
+  def search_available
+    p params
+    day = Date.new(params[:date][:year].to_i, params[:date][:month].to_i, params[:date][:day].to_i)
+    arr = Booking.get_reserved(day)
+    id = [1,2,3,4]
+    arr.each_index do |idx|
+      (params[:from].to_i).upto(params[:to].to_i) do |i|
+        if arr[idx][i] == 1
+         id.delete_at(idx)
+         break
+        end
+      end
+    end
+    @rooms = Room.where(id: id)
+    @default_from = params[:from]
+    @default_to = params[:to]
+    @default_date = params[:day]
+    @booking = Booking.new
+    gon.reserved_table = Booking.get_reserved
+    render "new"
+  end
+
   # 予約詳細
   def show
     logger.debug(session)
@@ -24,8 +46,10 @@ class BookingsController < ApplicationController
 
   # 新規予約
   def new
+    @default_from = Time.now.hour + 1
+    @default_to = Time.now.hour + 2
+    @default_date = Date.today
     gon.reserved_table = Booking.get_reserved
-    @bookings = Booking.where(day: Date.today) # 今日の予約を取り出す
     @rooms = Room.order # Roomオブジェクトを取り出す
     @booking = Booking.new
     @booking.room_id = 1 # 最初からラジオボタンを選択状態に
