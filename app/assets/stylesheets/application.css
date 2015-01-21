@@ -275,6 +275,11 @@ table.list tr.highlight td {
   margin: 100px;
 }
 
+table.list tr.expirated td {
+  background: #E38692;
+  margin: 100px;
+}
+
 table.list tr:hover{
 	font-weight: normal;
 	color:#222;

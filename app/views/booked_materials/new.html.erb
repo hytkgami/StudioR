@@ -6,7 +6,7 @@
 <p><button class="open">すべて開く</button></p>
 <%= form_tag :booked_Materials, method: :post do %>
   <% @materials.each do |material| %>
-  <h3 class="head"><%= material[0].get_kind_name(material[0].kind_id) %></h3>
+  <h3 class="head">▼<%= material[0].get_kind_name(material[0].kind_id) %></h3>
   <table class="list row" style="display: none;">
     <tr>
       <th>選択</th>

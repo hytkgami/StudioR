@@ -34,8 +34,15 @@
     <th>予約日</th>
     <th>予約ID</th>
   </tr>
+<% today = Date.today %>
 <% @bookings.each do |booking| %>
+<% if booking.day < today %>
+  <tr class="expirated">
+<% elsif booking.day == today %>
+  <tr class="highlight">
+<% else %>
   <tr>
+<% end %>
     <td><%= booking.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
     <td><%= booking.day %></td>
     <td><%= link_to booking.book_id, booking  %></td>
