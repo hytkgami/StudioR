@@ -247,8 +247,6 @@ a.link:hover{
 table.list
 {
 	border-width: 0px;
-  width: 100%;
-  margin: 0 auto;
 }
 
 table.list td, th{
