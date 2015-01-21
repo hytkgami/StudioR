@@ -9,9 +9,7 @@
   </tr>
   <tr>
     <th>名前</th>
-    <td>
-      <%= link_to @member do %><%= @member.name %><% end %>
-    </td>
+    <td><%= @member.name %></td>
   </tr>
   <tr>
     <th>電話番号</th>
@@ -45,6 +43,5 @@
 <% end %>
 </table>
 <% end %>
-<span class="back"><%= link_to "戻る", :back %></span>
 </div>
 </div>
