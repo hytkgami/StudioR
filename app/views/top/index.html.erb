@@ -13,6 +13,14 @@
   <h3>使用可能な部屋を検索</h3>
   <p>予約を希望する日時を選択し、検索してください。</p>
   <%= form_tag :search_available_bookings, method: :get do %>
+    <%= hidden_field_tag 'date[year]', Date.today.year %>
+    <%= hidden_field_tag 'date[month]', Date.today.month %>
+    <%= hidden_field_tag 'date[day]', Date.today.day %>
+    <%= hidden_field_tag 'from', Time.now.hour + 1 %>
+    <%= hidden_field_tag 'to', Time.now.hour + 2 %>
+    <p>急いでスタジオを押さえたい方はこちら <button>今すぐ予約</button></p>
+  <% end %>
+  <%= form_tag :search_available_bookings, method: :get do %>
   <table class="form">
     <tr>
       <th><%= label_tag "日付" %></th>
