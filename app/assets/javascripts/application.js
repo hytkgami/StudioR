@@ -84,7 +84,7 @@ $(document).ready(function(){
     console.log(tmp);
     cells = $('tr#room'+(i+1)+' td:first-child').next();
     console.log(cells);
-    for(var j=0; j<=24; j++) {
+    for(var j=0; j<24; j++) {
       if (gon.reserved_table[i][j] == 1) {
         cells.removeClass("blue");
         cells.addClass("red");

@@ -3,7 +3,8 @@
 class BookedMaterialsController < ApplicationController
   def new
     @materials = Array.new
-    1.upto(9) do |i|
+    arr = Material.order.map{|x|x.kind_id}.uniq
+    arr.each do |i|
       @materials << Material.where(kind_id: i)
     end
   end

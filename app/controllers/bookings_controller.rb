@@ -14,8 +14,14 @@ class BookingsController < ApplicationController
   end
 
   def search_available
-    p params
     day = Date.new(params[:date][:year].to_i, params[:date][:month].to_i, params[:date][:day].to_i)
+    if params[:from].to_i <= Time.now.hour
+      params[:from] = Time.now.hour + 1
+    end
+    @default_from = params[:from]
+    if params[:to].to_i <= Time.now.hour
+      params[:to] = Time.now.hour + 2
+    end
     arr = Booking.get_reserved(day)
     id = [1,2,3,4]
     arr.each_index do |idx|
@@ -27,9 +33,8 @@ class BookingsController < ApplicationController
       end
     end
     @rooms = Room.where(id: id)
-    @default_from = params[:from]
     @default_to = params[:to]
-    @default_date = params[:day]
+    @default_date = day
     @booking = Booking.new
     gon.reserved_table = Booking.get_reserved
     render "new"
@@ -62,6 +67,9 @@ class BookingsController < ApplicationController
     @booking = Booking.new(params[:booking])
     @book_id = SecureRandom.hex(4).to_s
     @booking.assign_attributes(book_id: @book_id, member: @current_member)
+    @default_from = params[:booking][:from]
+    @default_to = params[:booking][:to]
+    @default_date = params[:booking][:day]
     session[:book_id] = @book_id
     session[:booking] = @booking
     # 機材予約チェックボックスがtrueならば

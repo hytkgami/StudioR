@@ -336,9 +336,10 @@ table.timetable {
 }
 
 table.timetable tr th {
+  padding: 0;
   font-style: none;
   font-color: gray;
-  font-size: 9px;
+  font-size: 10px;
   text-align: left;
   width: 16px;
 }
